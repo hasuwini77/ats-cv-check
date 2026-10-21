@@ -12,5 +12,5 @@
     "outDir": "dist",
     "rootDir": "."
   },
-  "include": ["src", "tests", "scripts/*.ts", "demo/src"]
+  "include": ["src", "tests", "scripts/*.ts", "demo-src"]
 }

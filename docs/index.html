@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>ats-cv-check demo</title>
+  <meta name="description" content="Deterministic CV checker demo. No AI, no network: everything runs in your browser.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <div class="top">
+      <h1>ats-cv-check</h1>
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-locale="en" aria-pressed="true">EN</button>
+        <button type="button" data-locale="sv" aria-pressed="false">SV</button>
+        <button type="button" data-locale="fr" aria-pressed="false">FR</button>
+      </div>
+    </div>
+    <p id="lead" class="muted"></p>
+
+    <label for="cv" id="cv-label"></label>
+    <textarea id="cv" spellcheck="false" autocomplete="off"></textarea>
+    <label for="jd" id="jd-label"></label>
+    <textarea id="jd" spellcheck="false" autocomplete="off"></textarea>
+
+    <div class="actions">
+      <button type="button" id="check" class="primary"></button>
+      <button type="button" id="sample"></button>
+    </div>
+
+    <div id="results" aria-live="polite"></div>
+
+    <footer>
+      <p><a id="hosted-link" href="https://nextcv.net/en/cv-check"></a></p>
+      <p class="muted"><a href="https://github.com/hasuwini77/ats-cv-check">Source on GitHub</a> · MIT</p>
+    </footer>
+  </main>
+  <script src="checker.js"></script>
+</body>
+</html>

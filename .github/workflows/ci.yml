@@ -22,7 +22,7 @@ jobs:
       - run: npm test
       - run: npm run build
       - name: Built demo is up to date
-        run: git diff --exit-code -- demo/checker.js
+        run: git diff --exit-code -- docs/checker.js
       - name: Built package imports and scores
         run: |
           node --input-type=module -e "

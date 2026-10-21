@@ -46,6 +46,8 @@
   function buildAlternation(words) {
     return [...new Set(words)].sort((a, b) => b.length - a.length).join("|");
   }
+  var WORD_START = "(?<![\\p{L}\\p{N}_])";
+  var WORD_END = "(?![\\p{L}\\p{N}_])";
   var SEVERITY_RANK = {
     critical: 0,
     warning: 1,
@@ -54,9 +56,18 @@
   function sortFindings(findings) {
     return [...findings].sort((a, b) => SEVERITY_RANK[a.severity] - SEVERITY_RANK[b.severity]);
   }
-  var EXPERIENCE_HEADING_RE = /\b(work\s+experience|professional\s+experience|employment\s+history|work\s+history|experience|arbetslivserfarenhet|yrkeserfarenhet|erfarenhet|expérience\s+professionnelle|parcours\s+professionnel|expérience)\b/i;
-  var EDUCATION_HEADING_RE = /\b(education|academic\s+background|utbildning|akademisk\s+bakgrund|formation|études|diplômes?)\b/i;
-  var SKILLS_HEADING_RE = /\b(technical\s+skills|core\s+competencies|skills|competencies|kompetenser|kompetens|färdigheter|compétences)\b/i;
+  var EXPERIENCE_HEADING_RE = new RegExp(
+    `${WORD_START}(work\\s+experience|professional\\s+experience|employment\\s+history|work\\s+history|experience|arbetslivserfarenhet|yrkeserfarenhet|erfarenhet|exp\xE9rience\\s+professionnelle|parcours\\s+professionnel|exp\xE9rience)${WORD_END}`,
+    "iu"
+  );
+  var EDUCATION_HEADING_RE = new RegExp(
+    `${WORD_START}(education|academic\\s+background|utbildning|akademisk\\s+bakgrund|formation|\xE9tudes|dipl\xF4mes?)${WORD_END}`,
+    "iu"
+  );
+  var SKILLS_HEADING_RE = new RegExp(
+    `${WORD_START}(technical\\s+skills|core\\s+competencies|skills|competencies|kompetenser|kompetens|f\xE4rdigheter|comp\xE9tences)${WORD_END}`,
+    "iu"
+  );
   var STRUCTURE_SECTION_COUNT = 3;
   function analyzeStructure(text) {
     const hasExperience = EXPERIENCE_HEADING_RE.test(text);
@@ -158,22 +169,22 @@
   ];
   var MONTH_FRAGMENT = buildAlternation(MONTH_NAMES_RAW);
   var PRESENT_FRAGMENT = "present|now|currently|current|ongoing|nu|p[a\xE5]g[a\xE5]ende|aujourd'hui|pr[\xE9e]sent(?:e)?|actuel(?:le)?|[a\xE0]\\s*ce\\s*jour";
-  var DATE_SEPARATOR_FRAGMENT = "(?:[-\u2013\u2014]|\\bto\\b|\\btill\\b|\\b\xE0\\b)";
+  var DATE_SEPARATOR_FRAGMENT = `(?:[-\u2013\u2014]|${WORD_START}(?:to|till|\xE0)${WORD_END})`;
   var ISO_MONTH_TOKEN = "(?:19|20)\\d{2}-(?:0[1-9]|1[0-2])";
   var MONTH_NAME_TOKEN = `(?:${MONTH_FRAGMENT})\\.?\\s+(?:19|20)\\d{2}`;
   var YEAR_TOKEN = "(?:19|20)\\d{2}";
   var ANY_DATE_TOKEN_RE = new RegExp(`\\b(?:${ISO_MONTH_TOKEN}|${MONTH_NAME_TOKEN}|${YEAR_TOKEN})\\b`, "i");
   var ISO_RANGE_RE = new RegExp(
     `(${ISO_MONTH_TOKEN})\\s*${DATE_SEPARATOR_FRAGMENT}\\s*(${ISO_MONTH_TOKEN}|${PRESENT_FRAGMENT})`,
-    "gi"
+    "giu"
   );
   var MONTH_RANGE_RE = new RegExp(
     `(${MONTH_NAME_TOKEN})\\s*${DATE_SEPARATOR_FRAGMENT}\\s*(${MONTH_NAME_TOKEN}|${PRESENT_FRAGMENT})`,
-    "gi"
+    "giu"
   );
   var YEAR_RANGE_RE = new RegExp(
     `(?<!(?:${MONTH_FRAGMENT})\\.?\\s)\\b(${YEAR_TOKEN})\\s*${DATE_SEPARATOR_FRAGMENT}\\s*(${YEAR_TOKEN}|${PRESENT_FRAGMENT})\\b`,
-    "gi"
+    "giu"
   );
   var DATES_BASE_SCORE = 100;
   var DATES_INCONSISTENT_PENALTY = 40;
@@ -280,7 +291,7 @@
   var BULLET_LINE_RE = /^[ \t]*(?:[-•*]|\d+[.)])[ \t]+(.+)$/;
   var DATE_RANGE_LINE_RE = new RegExp(
     `(?:${ISO_MONTH_TOKEN}|${MONTH_NAME_TOKEN}|${YEAR_TOKEN})\\s*${DATE_SEPARATOR_FRAGMENT}\\s*(?:${ISO_MONTH_TOKEN}|${MONTH_NAME_TOKEN}|${YEAR_TOKEN}|${PRESENT_FRAGMENT})`,
-    "i"
+    "iu"
   );
   function isDateRangeLine(line) {
     const match = line.match(DATE_RANGE_LINE_RE);
@@ -450,7 +461,7 @@
     "automatis\xE9"
   ];
   var ACTION_VERB_ALTERNATION = buildAlternation([...ACTION_VERBS_EN, ...ACTION_VERBS_SV, ...ACTION_VERBS_FR]);
-  var ACTION_VERB_START_RE = new RegExp(`^(?:${ACTION_VERB_ALTERNATION})\\b`, "i");
+  var ACTION_VERB_START_RE = new RegExp(`^(?:${ACTION_VERB_ALTERNATION})${WORD_END}`, "iu");
   var WEAK_VERB_RATIO_THRESHOLD = 0.4;
   var QUANTIFIED_MIN_RATIO = 0.25;
   var BULLETS_WARNING_PENALTY = 35;
@@ -672,7 +683,7 @@
     fr: STOPWORDS_FR
   };
   var TOKEN_RE = /[a-zà-öø-ÿ0-9+#.]+/gi;
-  var CAPITALIZED_WORD_RE = /\b[A-ZÀ-Ö][a-zà-ÿ0-9+#.]{2,}\b/g;
+  var CAPITALIZED_WORD_RE = /(?<![\p{L}\p{N}_])\p{Lu}[\p{Ll}\p{N}+#.]{2,}(?![\p{L}\p{N}_])/gu;
   var MIN_TOKEN_LENGTH = 3;
   var KEYWORD_MATCH_DENOMINATOR_CAP = 30;
   var LOW_KEYWORD_THRESHOLD = 0.3;
@@ -699,11 +710,11 @@
       return { score: 0, weight: 0, findings: [], matched: [], missing: [] };
     }
     const cvSet = extractKeywordSet(cvText, locale2);
-    const jdKeywords = [...jdSet].sort();
+    const jdKeywords = [...jdSet].sort().slice(0, KEYWORD_MATCH_DENOMINATOR_CAP);
     const matched = jdKeywords.filter((k) => cvSet.has(k));
     const missing = jdKeywords.filter((k) => !cvSet.has(k));
-    const denominator = Math.min(jdSet.size, KEYWORD_MATCH_DENOMINATOR_CAP);
-    const overlap = denominator > 0 ? Math.min(matched.length / denominator, 1) : 0;
+    const denominator = jdKeywords.length;
+    const overlap = denominator > 0 ? matched.length / denominator : 0;
     const score = Math.round(overlap * 100);
     let id;
     let severity = "warning";
@@ -727,7 +738,10 @@
     };
   }
   var PERSONNUMMER_RE = /\b\d{6}(?:\d{2})?[-+]\d{4}\b/;
-  var FR_PERSONAL_DETAILS_RE = /\b(né(?:e)?\s+le|date de naissance|nationalité|situation familiale|marié(?:e)?|célibataire|état civil)\b/i;
+  var FR_PERSONAL_DETAILS_RE = new RegExp(
+    `${WORD_START}(n\xE9(?:e)?\\s+le|date de naissance|nationalit\xE9|situation familiale|mari\xE9(?:e)?|c\xE9libataire|\xE9tat civil)${WORD_END}`,
+    "iu"
+  );
   var CONVENTIONS_WARNING_PENALTY = 30;
   function analyzeConventions(text, locale2) {
     const findings = [];
@@ -829,8 +843,8 @@
 Senior Product Designer
 
 Email: john.doe@example.com
-Phone: +45 20 12 34 56
-LinkedIn: linkedin.com/in/johndoe-demo
+Phone: +45 00 00 00 00
+LinkedIn: linkedin.com/in/example-demo-0001
 Location: Copenhagen, Denmark
 
 SUMMARY
@@ -872,8 +886,8 @@ English (fluent), Danish (native), German (conversational).`;
 Senior Produktdesigner
 
 E-post: johan.andersson@example.com
-Telefon: +46 70 123 45 67
-LinkedIn: linkedin.com/in/johan-demo
+Telefon: +46 70 174 06 12
+LinkedIn: linkedin.com/in/example-demo-0002
 Ort: Stockholm, Sverige
 
 SAMMANFATTNING
@@ -916,8 +930,8 @@ Svenska (modersm\xE5l), engelska (flytande), tyska (samtalsniv\xE5).`;
 Designer Produit Senior
 
 E-mail : jean.martin@example.com
-T\xE9l\xE9phone : +33 6 12 34 56 78
-LinkedIn : linkedin.com/in/jean-demo
+T\xE9l\xE9phone : +33 6 39 98 12 34
+LinkedIn : linkedin.com/in/example-demo-0003
 Lieu : Paris, France
 
 R\xC9SUM\xC9
@@ -975,7 +989,7 @@ Design systems, B2B SaaS, visualisation de donn\xE9es, accessibilit\xE9 (WCAG AA
     findings: {
       "not-enough-text": {
         title: "Not enough text to analyse",
-        fix: "Add more content \u2014 a full CV usually runs 300+ words; make sure your upload extracted correctly."
+        fix: "Add more content \u2014 a full CV usually runs 300+ words; make sure the text you passed in was extracted completely."
       },
       "missing-experience-section": {
         title: "No experience section found",
@@ -1111,7 +1125,7 @@ Design systems, B2B SaaS, visualisation de donn\xE9es, accessibilit\xE9 (WCAG AA
     findings: {
       "not-enough-text": {
         title: "F\xF6r lite text f\xF6r att analysera",
-        fix: "L\xE4gg till mer inneh\xE5ll \u2014 ett fullst\xE4ndigt CV \xE4r oftast 300+ ord; kontrollera att uppladdningen extraherade texten korrekt."
+        fix: "L\xE4gg till mer inneh\xE5ll \u2014 ett fullst\xE4ndigt CV \xE4r oftast 300+ ord; kontrollera att hela texten extraherades innan du skickade in den."
       },
       "missing-experience-section": {
         title: "Ingen erfarenhetssektion hittades",
@@ -1247,7 +1261,7 @@ Design systems, B2B SaaS, visualisation de donn\xE9es, accessibilit\xE9 (WCAG AA
     findings: {
       "not-enough-text": {
         title: "Pas assez de texte pour l'analyse",
-        fix: "Ajoutez plus de contenu \u2014 un CV complet fait g\xE9n\xE9ralement 300 mots ou plus ; v\xE9rifiez que l'import a bien extrait le texte."
+        fix: "Ajoutez plus de contenu \u2014 un CV complet fait g\xE9n\xE9ralement 300 mots ou plus ; v\xE9rifiez que le texte fourni a \xE9t\xE9 extrait en entier."
       },
       "missing-experience-section": {
         title: "Aucune section Exp\xE9rience trouv\xE9e",
@@ -1389,7 +1403,7 @@ Design systems, B2B SaaS, visualisation de donn\xE9es, accessibilit\xE9 (WCAG AA
     return messages[locale2].categories[category];
   }
 
-  // demo/src/main.ts
+  // demo-src/main.ts
   var UI = {
     en: {
       lead: "Paste a CV and get a score out of 100. Everything runs in this page. Nothing is sent anywhere.",
@@ -1458,6 +1472,7 @@ Design systems, B2B SaaS, visualisation de donn\xE9es, accessibilit\xE9 (WCAG AA
     $("sample").textContent = t.sample;
     $("check").textContent = t.check;
     $("hosted-link").textContent = t.hosted;
+    $("hosted-link").href = `https://nextcv.net/${locale}/cv-check`;
     for (const btn of document.querySelectorAll("[data-locale]")) {
       btn.setAttribute("aria-pressed", String(btn.dataset.locale === locale));
     }

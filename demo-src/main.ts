@@ -7,7 +7,7 @@ import {
   MAX_INPUT_CHARS,
   type CvCheckLocale,
   type CvCheckResult,
-} from "../../src/index.js";
+} from "../src/index.js";
 
 const UI: Record<
   CvCheckLocale,
@@ -103,6 +103,7 @@ function applyStaticText(): void {
   $("sample").textContent = t.sample;
   $("check").textContent = t.check;
   $("hosted-link").textContent = t.hosted;
+  $<HTMLAnchorElement>("hosted-link").href = `https://nextcv.net/${locale}/cv-check`;
   for (const btn of document.querySelectorAll<HTMLButtonElement>("[data-locale]")) {
     btn.setAttribute("aria-pressed", String(btn.dataset.locale === locale));
   }
