@@ -32,6 +32,13 @@ describe("locale files", () => {
   });
 });
 
+describe("package wording", () => {
+  it.each(LOCALES)("%s not-enough-text fix does not talk about uploads", (locale) => {
+    const { fix } = messages[locale].findings["not-enough-text"];
+    expect(fix).not.toMatch(/upload|uppladd|ladda upp|import/i);
+  });
+});
+
 describe("describeFinding", () => {
   it("fills placeholders from params", () => {
     const text = describeFinding(

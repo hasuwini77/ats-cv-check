@@ -12,7 +12,7 @@
   "findings": {
     "not-enough-text": {
       "title": "För lite text för att analysera",
-      "fix": "Lägg till mer innehåll — ett fullständigt CV är oftast 300+ ord; kontrollera att uppladdningen extraherade texten korrekt."
+      "fix": "Lägg till mer innehåll — ett fullständigt CV är oftast 300+ ord; kontrollera att hela texten extraherades innan du skickade in den."
     },
     "missing-experience-section": {
       "title": "Ingen erfarenhetssektion hittades",

@@ -12,7 +12,7 @@
   "findings": {
     "not-enough-text": {
       "title": "Not enough text to analyse",
-      "fix": "Add more content — a full CV usually runs 300+ words; make sure your upload extracted correctly."
+      "fix": "Add more content — a full CV usually runs 300+ words; make sure the text you passed in was extracted completely."
     },
     "missing-experience-section": {
       "title": "No experience section found",

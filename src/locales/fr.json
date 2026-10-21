@@ -12,7 +12,7 @@
   "findings": {
     "not-enough-text": {
       "title": "Pas assez de texte pour l'analyse",
-      "fix": "Ajoutez plus de contenu — un CV complet fait généralement 300 mots ou plus ; vérifiez que l'import a bien extrait le texte."
+      "fix": "Ajoutez plus de contenu — un CV complet fait généralement 300 mots ou plus ; vérifiez que le texte fourni a été extrait en entier."
     },
     "missing-experience-section": {
       "title": "Aucune section Expérience trouvée",
