@@ -13,8 +13,14 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist", "README.md", "LICENSE"],
-  "engines": { "node": ">=20.10" },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.10"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.build.json && node scripts/build-demo.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -23,6 +29,7 @@
     "locales": "node scripts/extract-locales.mjs"
   },
   "devDependencies": {
+    "@types/node": "^22.20.5",
     "esbuild": "^0.25.0",
     "tsx": "^4.19.0",
     "typescript": "^5.6.0",
