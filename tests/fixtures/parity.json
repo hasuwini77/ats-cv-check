@@ -1,0 +1,1446 @@
+{
+  "generatedFrom": {
+    "sha": "e9ead448844d0b325e5bbcf5886fb26a2008b4d1",
+    "files": [
+      "lib/cv-check.ts",
+      "lib/cv-check-types.ts",
+      "lib/cv-check-samples.ts"
+    ]
+  },
+  "cases": [
+    {
+      "name": "sample-en",
+      "input": {
+        "text": "JOHN DOE\nSenior Product Designer\n\nEmail: john.doe@example.com\nPhone: +45 20 12 34 56\nLinkedIn: linkedin.com/in/johndoe-demo\nLocation: Copenhagen, Denmark\n\nSUMMARY\nSenior product designer with 6 years shipping data-intensive dashboards for B2B SaaS products used by millions of operational users. Led a design-system working group and partnered with engineering on cross-functional features end-to-end, from early research through launch and post-launch measurement. Comfortable owning a problem from early discovery through shipped, measured impact, and known for pairing strong systems thinking with a bias toward action.\n\nEXPERIENCE\n\nSenior Product Designer — Kestrel Logistics\nMarch 2023 – Present\n- Redesigned the route-planning dashboard used by 2.4 million drivers and dispatchers across 14 countries, cutting time-to-first-route by 38%.\n- Built and maintained the internal design system, leading a weekly working group with 4 designers and 6 engineers.\n- Introduced component-level accessibility testing into the team workflow, shipping WCAG AA across 90% of the product surface.\n- Partnered with a principal PM and staff engineer to ship 12 cross-functional features in 18 months.\n- Established a quarterly design-critique format adopted by 3 other product teams, raising review throughput by 25%.\n\nProduct Designer — Ember Analytics\nJanuary 2020 – February 2023\n- Designed dense tabular interfaces for financial analysts, reducing support tickets on the reporting surface by 52% in two quarters.\n- Owned the charting-library design guidelines and partnered with engineering on a Canvas-based renderer for large datasets.\n- Ran a research program with 40+ analysts to map daily workflows, shaping three quarters of the product roadmap.\n- Trained 5 junior designers on the team's critique process and design-system contribution model.\n\nJunior Designer — Skylight Studio\nJune 2018 – December 2019\n- Designed marketing sites and early-stage SaaS dashboards for 6 seed-stage B2B clients.\n- Built the studio's first reusable component library, adopted across 12 client projects.\n\nEDUCATION\n\nBA in Interaction Design — Malmö University\nAugust 2014 – June 2018\n\nSKILLS\nDesign systems, B2B SaaS, data visualisation, accessibility (WCAG AA), Figma, prototyping, cross-functional collaboration, user research, design critique, Canvas rendering, information architecture, motion design, workshop facilitation, stakeholder communication.\n\nLANGUAGES\nEnglish (fluent), Danish (native), German (conversational).",
+        "locale": "en"
+      },
+      "expected": {
+        "score": 100,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 100,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 0,
+            "weight": 0
+          },
+          {
+            "category": "conventions",
+            "score": 100,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "sections-complete",
+            "category": "structure",
+            "severity": "pass"
+          },
+          {
+            "id": "contact-complete",
+            "category": "contact",
+            "severity": "pass"
+          },
+          {
+            "id": "dates-consistent",
+            "category": "dates",
+            "severity": "pass"
+          },
+          {
+            "id": "length-good",
+            "category": "length",
+            "severity": "pass",
+            "params": {
+              "wordCount": 347
+            }
+          },
+          {
+            "id": "bullets-strong",
+            "category": "bullets",
+            "severity": "pass"
+          },
+          {
+            "id": "ats-clean",
+            "category": "ats",
+            "severity": "pass"
+          },
+          {
+            "id": "locale-length-note",
+            "category": "conventions",
+            "severity": "pass"
+          }
+        ],
+        "matchedKeywords": [],
+        "missingKeywords": [],
+        "wordCount": 347,
+        "estimatedPages": 1
+      }
+    },
+    {
+      "name": "sample-sv",
+      "input": {
+        "text": "JOHAN ANDERSSON\nSenior Produktdesigner\n\nE-post: johan.andersson@example.com\nTelefon: +46 70 123 45 67\nLinkedIn: linkedin.com/in/johan-demo\nOrt: Stockholm, Sverige\n\nSAMMANFATTNING\nSenior produktdesigner med 6 års erfarenhet av dataintensiva dashboards för B2B SaaS-produkter som används av miljontals operativa användare. Ledde designsystem-arbetsgruppen på senaste företaget och samarbetade med ingenjörer kring tvärfunktionella funktioner, från tidig research till lansering och uppföljande mätning. Van att äga ett problem från tidig upptäckt till levererad, mätbar effekt, och känd för att kombinera starkt systemtänkande med handlingskraft.\n\nERFARENHET\n\nSenior Produktdesigner — Kestrel Logistics\nmars 2023 – nu\n- Designade om rutplaneringsdashboarden som används av 2,4 miljoner chaufförer och dispatchers i 14 länder, minskade time-to-first-route med 38 procent.\n- Byggde och underhöll det interna designsystemet, ledde en veckovis arbetsgrupp med 4 designers och 6 ingenjörer.\n- Införde tillgänglighetstester på komponentnivå i teamets arbetsflöde, levererade WCAG AA över 90 procent av produktytan.\n- Samarbetade med en principal PM och en senior ingenjör för att leverera 12 tvärfunktionella funktioner på 18 månader.\n- Etablerade ett kvartalsvist designgranskningsformat som togs upp av 3 andra produktteam, ökade granskningstakten med 25 procent.\n\nProduktdesigner — Ember Analytics\njanuari 2020 – februari 2023\n- Designade täta tabellgränssnitt för finansanalytiker, minskade supportärenden på rapporteringsytan med 52 procent på två kvartal.\n- Ägde designriktlinjerna för diagrambiblioteket och samarbetade med ingenjörer om en Canvas-baserad renderare för stora dataset.\n- Drev ett forskningsprogram med 40+ analytiker för att kartlägga dagliga arbetsflöden, formade tre kvartal av produktens roadmap.\n- Utbildade 5 juniora designers i teamets granskningsprocess och designsystemets bidragsmodell.\n- Genomförde en tillgänglighetsrevision av rapporteringsytan och åtgärdade 32 kontrastfel innan release.\n\nJuniordesigner — Skylight Studio\njuni 2018 – december 2019\n- Designade marknadssidor och tidiga SaaS-dashboards för 6 seed-stage B2B-kunder.\n- Byggde studions första återanvändbara komponentbibliotek, använt i 12 kundprojekt.\n\nUTBILDNING\n\nKandidatexamen i interaktionsdesign — Malmö universitet\naugusti 2014 – juni 2018\n\nKOMPETENS\nDesignsystem, B2B SaaS, datavisualisering, tillgänglighet (WCAG AA), Figma, prototyping, tvärfunktionellt samarbete, användarforskning, designgranskning, Canvas-rendering, informationsarkitektur, rörelsedesign, workshopfacilitering, intressentkommunikation.\n\nSPRÅK\nSvenska (modersmål), engelska (flytande), tyska (samtalsnivå).",
+        "locale": "sv"
+      },
+      "expected": {
+        "score": 100,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 100,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 0,
+            "weight": 0
+          },
+          {
+            "category": "conventions",
+            "score": 100,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "sections-complete",
+            "category": "structure",
+            "severity": "pass"
+          },
+          {
+            "id": "contact-complete",
+            "category": "contact",
+            "severity": "pass"
+          },
+          {
+            "id": "dates-consistent",
+            "category": "dates",
+            "severity": "pass"
+          },
+          {
+            "id": "length-good",
+            "category": "length",
+            "severity": "pass",
+            "params": {
+              "wordCount": 325
+            }
+          },
+          {
+            "id": "bullets-strong",
+            "category": "bullets",
+            "severity": "pass"
+          },
+          {
+            "id": "ats-clean",
+            "category": "ats",
+            "severity": "pass"
+          },
+          {
+            "id": "locale-photo-note",
+            "category": "conventions",
+            "severity": "pass"
+          }
+        ],
+        "matchedKeywords": [],
+        "missingKeywords": [],
+        "wordCount": 325,
+        "estimatedPages": 1
+      }
+    },
+    {
+      "name": "sample-fr",
+      "input": {
+        "text": "JEAN MARTIN\nDesigner Produit Senior\n\nE-mail : jean.martin@example.com\nTéléphone : +33 6 12 34 56 78\nLinkedIn : linkedin.com/in/jean-demo\nLieu : Paris, France\n\nRÉSUMÉ\nDesigner produit senior avec 6 ans d'expérience à livrer des tableaux de bord intensifs en données pour des produits B2B SaaS. A animé le groupe de travail hebdomadaire sur le design system et collaboré avec l'ingénierie sur des fonctionnalités transverses, de la recherche jusqu'au lancement. À l'aise pour porter un problème depuis la découverte initiale jusqu'à un impact livré et mesuré.\n\nEXPÉRIENCE\n\nDesigner Produit Senior — Kestrel Logistics\nmars 2023 – aujourd'hui\n- Refonte du tableau de bord de planification d'itinéraires utilisé par 2,4 millions de chauffeurs et dispatcheurs dans 14 pays, réduction du time-to-first-route de 38 pourcent.\n- Construit et maintenu le design system interne, animé un groupe de travail hebdomadaire avec 4 designers et 6 ingénieurs.\n- Déployé des tests d'accessibilité au niveau des composants dans le workflow de l'équipe, livré WCAG AA sur 90 pourcent de la surface produit.\n- Collaboré avec un PM principal et un ingénieur staff pour livrer 12 fonctionnalités transverses en 18 mois.\n\nDesigner Produit — Ember Analytics\njanvier 2020 – février 2023\n- Conçu des interfaces tabulaires denses pour analystes financiers, réduit les tickets support sur la surface reporting de 52 pourcent en deux trimestres.\n- Géré les guidelines design de la bibliothèque de graphiques et collaboré avec l'ingénierie sur un moteur de rendu Canvas pour gros datasets.\n- Piloté un programme de recherche avec 40+ analystes pour cartographier les workflows quotidiens, façonné trois trimestres de roadmap produit.\n- Formé 5 designers juniors au processus de critique de l'équipe et au modèle de contribution au design system.\n\nDesigner Junior — Skylight Studio\njuin 2018 – décembre 2019\n- Conçu des sites marketing et des dashboards SaaS early-stage pour 6 clients B2B en seed.\n- Construit la première bibliothèque de composants réutilisable du studio, utilisée sur 12 projets clients.\n\nFORMATION\n\nLicence en Design d'Interaction — Université de Malmö\naoût 2014 – juin 2018\n\nCOMPÉTENCES\nDesign systems, B2B SaaS, visualisation de données, accessibilité (WCAG AA), Figma, prototypage, collaboration transverse, recherche utilisateur, critique de design, rendu Canvas, architecture de l'information, design de mouvement.",
+        "locale": "fr"
+      },
+      "expected": {
+        "score": 100,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 100,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 0,
+            "weight": 0
+          },
+          {
+            "category": "conventions",
+            "score": 100,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "sections-complete",
+            "category": "structure",
+            "severity": "pass"
+          },
+          {
+            "id": "contact-complete",
+            "category": "contact",
+            "severity": "pass"
+          },
+          {
+            "id": "dates-consistent",
+            "category": "dates",
+            "severity": "pass"
+          },
+          {
+            "id": "length-good",
+            "category": "length",
+            "severity": "pass",
+            "params": {
+              "wordCount": 362
+            }
+          },
+          {
+            "id": "bullets-strong",
+            "category": "bullets",
+            "severity": "pass"
+          },
+          {
+            "id": "ats-clean",
+            "category": "ats",
+            "severity": "pass"
+          },
+          {
+            "id": "locale-photo-note",
+            "category": "conventions",
+            "severity": "pass"
+          }
+        ],
+        "matchedKeywords": [],
+        "missingKeywords": [],
+        "wordCount": 362,
+        "estimatedPages": 1
+      }
+    },
+    {
+      "name": "sample-en-with-jd",
+      "input": {
+        "text": "JOHN DOE\nSenior Product Designer\n\nEmail: john.doe@example.com\nPhone: +45 20 12 34 56\nLinkedIn: linkedin.com/in/johndoe-demo\nLocation: Copenhagen, Denmark\n\nSUMMARY\nSenior product designer with 6 years shipping data-intensive dashboards for B2B SaaS products used by millions of operational users. Led a design-system working group and partnered with engineering on cross-functional features end-to-end, from early research through launch and post-launch measurement. Comfortable owning a problem from early discovery through shipped, measured impact, and known for pairing strong systems thinking with a bias toward action.\n\nEXPERIENCE\n\nSenior Product Designer — Kestrel Logistics\nMarch 2023 – Present\n- Redesigned the route-planning dashboard used by 2.4 million drivers and dispatchers across 14 countries, cutting time-to-first-route by 38%.\n- Built and maintained the internal design system, leading a weekly working group with 4 designers and 6 engineers.\n- Introduced component-level accessibility testing into the team workflow, shipping WCAG AA across 90% of the product surface.\n- Partnered with a principal PM and staff engineer to ship 12 cross-functional features in 18 months.\n- Established a quarterly design-critique format adopted by 3 other product teams, raising review throughput by 25%.\n\nProduct Designer — Ember Analytics\nJanuary 2020 – February 2023\n- Designed dense tabular interfaces for financial analysts, reducing support tickets on the reporting surface by 52% in two quarters.\n- Owned the charting-library design guidelines and partnered with engineering on a Canvas-based renderer for large datasets.\n- Ran a research program with 40+ analysts to map daily workflows, shaping three quarters of the product roadmap.\n- Trained 5 junior designers on the team's critique process and design-system contribution model.\n\nJunior Designer — Skylight Studio\nJune 2018 – December 2019\n- Designed marketing sites and early-stage SaaS dashboards for 6 seed-stage B2B clients.\n- Built the studio's first reusable component library, adopted across 12 client projects.\n\nEDUCATION\n\nBA in Interaction Design — Malmö University\nAugust 2014 – June 2018\n\nSKILLS\nDesign systems, B2B SaaS, data visualisation, accessibility (WCAG AA), Figma, prototyping, cross-functional collaboration, user research, design critique, Canvas rendering, information architecture, motion design, workshop facilitation, stakeholder communication.\n\nLANGUAGES\nEnglish (fluent), Danish (native), German (conversational).",
+        "locale": "en",
+        "jdText": "We are looking for a Senior Product Designer to own our design system and\ndashboard work. You will partner with engineering and product managers, run\nuser research, ship accessible interfaces (WCAG), prototype in Figma and\nmeasure impact. Experience with B2B SaaS, data visualisation, React component\nlibraries and design critique is a strong plus."
+      },
+      "expected": {
+        "score": 96,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 100,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 73,
+            "weight": 15
+          },
+          {
+            "category": "conventions",
+            "score": 100,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "sections-complete",
+            "category": "structure",
+            "severity": "pass"
+          },
+          {
+            "id": "contact-complete",
+            "category": "contact",
+            "severity": "pass"
+          },
+          {
+            "id": "dates-consistent",
+            "category": "dates",
+            "severity": "pass"
+          },
+          {
+            "id": "length-good",
+            "category": "length",
+            "severity": "pass",
+            "params": {
+              "wordCount": 347
+            }
+          },
+          {
+            "id": "bullets-strong",
+            "category": "bullets",
+            "severity": "pass"
+          },
+          {
+            "id": "ats-clean",
+            "category": "ats",
+            "severity": "pass"
+          },
+          {
+            "id": "strong-keyword-match",
+            "category": "keywords",
+            "severity": "pass",
+            "params": {
+              "matched": 22,
+              "total": 30
+            }
+          },
+          {
+            "id": "locale-length-note",
+            "category": "conventions",
+            "severity": "pass"
+          }
+        ],
+        "matchedKeywords": [
+          "b2b",
+          "component",
+          "critique",
+          "dashboard",
+          "data",
+          "design",
+          "designer",
+          "engineering",
+          "experience",
+          "figma"
+        ],
+        "missingKeywords": [
+          "accessible",
+          "libraries",
+          "looking",
+          "managers",
+          "measure",
+          "own",
+          "partner",
+          "plus",
+          "prototype",
+          "react"
+        ],
+        "wordCount": 347,
+        "estimatedPages": 1
+      }
+    },
+    {
+      "name": "sample-sv-with-jd",
+      "input": {
+        "text": "JOHAN ANDERSSON\nSenior Produktdesigner\n\nE-post: johan.andersson@example.com\nTelefon: +46 70 123 45 67\nLinkedIn: linkedin.com/in/johan-demo\nOrt: Stockholm, Sverige\n\nSAMMANFATTNING\nSenior produktdesigner med 6 års erfarenhet av dataintensiva dashboards för B2B SaaS-produkter som används av miljontals operativa användare. Ledde designsystem-arbetsgruppen på senaste företaget och samarbetade med ingenjörer kring tvärfunktionella funktioner, från tidig research till lansering och uppföljande mätning. Van att äga ett problem från tidig upptäckt till levererad, mätbar effekt, och känd för att kombinera starkt systemtänkande med handlingskraft.\n\nERFARENHET\n\nSenior Produktdesigner — Kestrel Logistics\nmars 2023 – nu\n- Designade om rutplaneringsdashboarden som används av 2,4 miljoner chaufförer och dispatchers i 14 länder, minskade time-to-first-route med 38 procent.\n- Byggde och underhöll det interna designsystemet, ledde en veckovis arbetsgrupp med 4 designers och 6 ingenjörer.\n- Införde tillgänglighetstester på komponentnivå i teamets arbetsflöde, levererade WCAG AA över 90 procent av produktytan.\n- Samarbetade med en principal PM och en senior ingenjör för att leverera 12 tvärfunktionella funktioner på 18 månader.\n- Etablerade ett kvartalsvist designgranskningsformat som togs upp av 3 andra produktteam, ökade granskningstakten med 25 procent.\n\nProduktdesigner — Ember Analytics\njanuari 2020 – februari 2023\n- Designade täta tabellgränssnitt för finansanalytiker, minskade supportärenden på rapporteringsytan med 52 procent på två kvartal.\n- Ägde designriktlinjerna för diagrambiblioteket och samarbetade med ingenjörer om en Canvas-baserad renderare för stora dataset.\n- Drev ett forskningsprogram med 40+ analytiker för att kartlägga dagliga arbetsflöden, formade tre kvartal av produktens roadmap.\n- Utbildade 5 juniora designers i teamets granskningsprocess och designsystemets bidragsmodell.\n- Genomförde en tillgänglighetsrevision av rapporteringsytan och åtgärdade 32 kontrastfel innan release.\n\nJuniordesigner — Skylight Studio\njuni 2018 – december 2019\n- Designade marknadssidor och tidiga SaaS-dashboards för 6 seed-stage B2B-kunder.\n- Byggde studions första återanvändbara komponentbibliotek, använt i 12 kundprojekt.\n\nUTBILDNING\n\nKandidatexamen i interaktionsdesign — Malmö universitet\naugusti 2014 – juni 2018\n\nKOMPETENS\nDesignsystem, B2B SaaS, datavisualisering, tillgänglighet (WCAG AA), Figma, prototyping, tvärfunktionellt samarbete, användarforskning, designgranskning, Canvas-rendering, informationsarkitektur, rörelsedesign, workshopfacilitering, intressentkommunikation.\n\nSPRÅK\nSvenska (modersmål), engelska (flytande), tyska (samtalsnivå).",
+        "locale": "sv",
+        "jdText": "Vi söker en senior produktdesigner som ansvarar för vårt designsystem och\nvåra dashboards. Du samarbetar med utvecklare och produktchefer, driver\nanvändarforskning, levererar tillgängliga gränssnitt, prototypar i Figma och\nmäter effekt. Erfarenhet av B2B SaaS, datavisualisering och komponentbibliotek."
+      },
+      "expected": {
+        "score": 93,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 100,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 48,
+            "weight": 15
+          },
+          {
+            "category": "conventions",
+            "score": 100,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "moderate-keyword-match",
+            "category": "keywords",
+            "severity": "warning",
+            "params": {
+              "matched": 12,
+              "total": 25
+            }
+          },
+          {
+            "id": "sections-complete",
+            "category": "structure",
+            "severity": "pass"
+          },
+          {
+            "id": "contact-complete",
+            "category": "contact",
+            "severity": "pass"
+          },
+          {
+            "id": "dates-consistent",
+            "category": "dates",
+            "severity": "pass"
+          },
+          {
+            "id": "length-good",
+            "category": "length",
+            "severity": "pass",
+            "params": {
+              "wordCount": 325
+            }
+          },
+          {
+            "id": "bullets-strong",
+            "category": "bullets",
+            "severity": "pass"
+          },
+          {
+            "id": "ats-clean",
+            "category": "ats",
+            "severity": "pass"
+          },
+          {
+            "id": "locale-photo-note",
+            "category": "conventions",
+            "severity": "pass"
+          }
+        ],
+        "matchedKeywords": [
+          "användarforskning",
+          "b2b",
+          "dashboards",
+          "datavisualisering",
+          "designsystem",
+          "effekt",
+          "erfarenhet",
+          "figma",
+          "komponentbibliotek",
+          "produktdesigner"
+        ],
+        "missingKeywords": [
+          "ansvarar",
+          "driver",
+          "gränssnitt",
+          "levererar",
+          "mäter",
+          "produktchefer",
+          "prototypar",
+          "samarbetar",
+          "söker",
+          "tillgängliga"
+        ],
+        "wordCount": 325,
+        "estimatedPages": 1
+      }
+    },
+    {
+      "name": "sample-fr-low-jd-match",
+      "input": {
+        "text": "JEAN MARTIN\nDesigner Produit Senior\n\nE-mail : jean.martin@example.com\nTéléphone : +33 6 12 34 56 78\nLinkedIn : linkedin.com/in/jean-demo\nLieu : Paris, France\n\nRÉSUMÉ\nDesigner produit senior avec 6 ans d'expérience à livrer des tableaux de bord intensifs en données pour des produits B2B SaaS. A animé le groupe de travail hebdomadaire sur le design system et collaboré avec l'ingénierie sur des fonctionnalités transverses, de la recherche jusqu'au lancement. À l'aise pour porter un problème depuis la découverte initiale jusqu'à un impact livré et mesuré.\n\nEXPÉRIENCE\n\nDesigner Produit Senior — Kestrel Logistics\nmars 2023 – aujourd'hui\n- Refonte du tableau de bord de planification d'itinéraires utilisé par 2,4 millions de chauffeurs et dispatcheurs dans 14 pays, réduction du time-to-first-route de 38 pourcent.\n- Construit et maintenu le design system interne, animé un groupe de travail hebdomadaire avec 4 designers et 6 ingénieurs.\n- Déployé des tests d'accessibilité au niveau des composants dans le workflow de l'équipe, livré WCAG AA sur 90 pourcent de la surface produit.\n- Collaboré avec un PM principal et un ingénieur staff pour livrer 12 fonctionnalités transverses en 18 mois.\n\nDesigner Produit — Ember Analytics\njanvier 2020 – février 2023\n- Conçu des interfaces tabulaires denses pour analystes financiers, réduit les tickets support sur la surface reporting de 52 pourcent en deux trimestres.\n- Géré les guidelines design de la bibliothèque de graphiques et collaboré avec l'ingénierie sur un moteur de rendu Canvas pour gros datasets.\n- Piloté un programme de recherche avec 40+ analystes pour cartographier les workflows quotidiens, façonné trois trimestres de roadmap produit.\n- Formé 5 designers juniors au processus de critique de l'équipe et au modèle de contribution au design system.\n\nDesigner Junior — Skylight Studio\njuin 2018 – décembre 2019\n- Conçu des sites marketing et des dashboards SaaS early-stage pour 6 clients B2B en seed.\n- Construit la première bibliothèque de composants réutilisable du studio, utilisée sur 12 projets clients.\n\nFORMATION\n\nLicence en Design d'Interaction — Université de Malmö\naoût 2014 – juin 2018\n\nCOMPÉTENCES\nDesign systems, B2B SaaS, visualisation de données, accessibilité (WCAG AA), Figma, prototypage, collaboration transverse, recherche utilisateur, critique de design, rendu Canvas, architecture de l'information, design de mouvement.",
+        "locale": "fr",
+        "jdText": "Nous recherchons un chef de cuisine expérimenté pour notre restaurant.\nVous gérez les achats, la brigade, les normes d'hygiène HACCP, les menus\nsaisonniers et la formation des commis en cuisine chaude et pâtisserie."
+      },
+      "expected": {
+        "score": 87,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 100,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 6,
+            "weight": 15
+          },
+          {
+            "category": "conventions",
+            "score": 100,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "low-keyword-match",
+            "category": "keywords",
+            "severity": "warning",
+            "params": {
+              "matched": 1,
+              "total": 18
+            }
+          },
+          {
+            "id": "sections-complete",
+            "category": "structure",
+            "severity": "pass"
+          },
+          {
+            "id": "contact-complete",
+            "category": "contact",
+            "severity": "pass"
+          },
+          {
+            "id": "dates-consistent",
+            "category": "dates",
+            "severity": "pass"
+          },
+          {
+            "id": "length-good",
+            "category": "length",
+            "severity": "pass",
+            "params": {
+              "wordCount": 362
+            }
+          },
+          {
+            "id": "bullets-strong",
+            "category": "bullets",
+            "severity": "pass"
+          },
+          {
+            "id": "ats-clean",
+            "category": "ats",
+            "severity": "pass"
+          },
+          {
+            "id": "locale-photo-note",
+            "category": "conventions",
+            "severity": "pass"
+          }
+        ],
+        "matchedKeywords": [
+          "formation"
+        ],
+        "missingKeywords": [
+          "achats",
+          "brigade",
+          "chaude",
+          "chef",
+          "commis",
+          "cuisine",
+          "expérimenté",
+          "gérez",
+          "haccp",
+          "hygiène"
+        ],
+        "wordCount": 362,
+        "estimatedPages": 1
+      }
+    },
+    {
+      "name": "under-40-words",
+      "input": {
+        "text": "Jane Roe. Designer. I like design and building things for people who need them.",
+        "locale": "en"
+      },
+      "expected": {
+        "score": 0,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 0,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 0,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 0,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 0,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 0,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 0,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 0,
+            "weight": 0
+          },
+          {
+            "category": "conventions",
+            "score": 0,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "not-enough-text",
+            "category": "length",
+            "severity": "critical",
+            "params": {
+              "wordCount": 14,
+              "minWords": 40
+            }
+          }
+        ],
+        "matchedKeywords": [],
+        "missingKeywords": [],
+        "wordCount": 14,
+        "estimatedPages": 1
+      }
+    },
+    {
+      "name": "weak-en",
+      "input": {
+        "text": "Sam Lee\nWorked at a shop 2019\nHelped customers and was responsible for the till.\nThen I did some work at a cafe from 05/2021 to 2022-03.\nResponsible for coffee and cleaning, helped with the team and worked on many tasks every day for the owner\nwho was happy. I am a hard worker and a team player with good communication skills and a positive attitude\nto anything that comes my way in any working environment. Reliable, punctual, quick learner, flexible.\nLater I was in charge of ordering stock and making sure the shelves looked good for customers who came in.\nWas involved in lots of things around the place and assisted with various duties as needed by management.\nHobbies: football, music, cooking, travelling and spending time with friends and family on weekends.",
+        "locale": "en"
+      },
+      "expected": {
+        "score": 59,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 33,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 0,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 44,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 65,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 0,
+            "weight": 0
+          },
+          {
+            "category": "conventions",
+            "score": 100,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "missing-experience-section",
+            "category": "structure",
+            "severity": "critical"
+          },
+          {
+            "id": "missing-education-section",
+            "category": "structure",
+            "severity": "critical"
+          },
+          {
+            "id": "missing-email",
+            "category": "contact",
+            "severity": "critical"
+          },
+          {
+            "id": "missing-phone",
+            "category": "contact",
+            "severity": "critical"
+          },
+          {
+            "id": "missing-linkedin",
+            "category": "contact",
+            "severity": "warning"
+          },
+          {
+            "id": "too-short",
+            "category": "length",
+            "severity": "warning",
+            "params": {
+              "wordCount": 133
+            }
+          },
+          {
+            "id": "bullets-not-detected",
+            "category": "bullets",
+            "severity": "warning"
+          },
+          {
+            "id": "dates-consistent",
+            "category": "dates",
+            "severity": "pass"
+          },
+          {
+            "id": "ats-clean",
+            "category": "ats",
+            "severity": "pass"
+          },
+          {
+            "id": "locale-length-note",
+            "category": "conventions",
+            "severity": "pass"
+          }
+        ],
+        "matchedKeywords": [],
+        "missingKeywords": [],
+        "wordCount": 133,
+        "estimatedPages": 1
+      }
+    },
+    {
+      "name": "weak-en-as-sv",
+      "input": {
+        "text": "Sam Lee\nWorked at a shop 2019\nHelped customers and was responsible for the till.\nThen I did some work at a cafe from 05/2021 to 2022-03.\nResponsible for coffee and cleaning, helped with the team and worked on many tasks every day for the owner\nwho was happy. I am a hard worker and a team player with good communication skills and a positive attitude\nto anything that comes my way in any working environment. Reliable, punctual, quick learner, flexible.\nLater I was in charge of ordering stock and making sure the shelves looked good for customers who came in.\nWas involved in lots of things around the place and assisted with various duties as needed by management.\nHobbies: football, music, cooking, travelling and spending time with friends and family on weekends.",
+        "locale": "sv"
+      },
+      "expected": {
+        "score": 59,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 33,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 0,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 44,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 65,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 0,
+            "weight": 0
+          },
+          {
+            "category": "conventions",
+            "score": 100,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "missing-experience-section",
+            "category": "structure",
+            "severity": "critical"
+          },
+          {
+            "id": "missing-education-section",
+            "category": "structure",
+            "severity": "critical"
+          },
+          {
+            "id": "missing-email",
+            "category": "contact",
+            "severity": "critical"
+          },
+          {
+            "id": "missing-phone",
+            "category": "contact",
+            "severity": "critical"
+          },
+          {
+            "id": "missing-linkedin",
+            "category": "contact",
+            "severity": "warning"
+          },
+          {
+            "id": "too-short",
+            "category": "length",
+            "severity": "warning",
+            "params": {
+              "wordCount": 133
+            }
+          },
+          {
+            "id": "bullets-not-detected",
+            "category": "bullets",
+            "severity": "warning"
+          },
+          {
+            "id": "dates-consistent",
+            "category": "dates",
+            "severity": "pass"
+          },
+          {
+            "id": "ats-clean",
+            "category": "ats",
+            "severity": "pass"
+          },
+          {
+            "id": "locale-photo-note",
+            "category": "conventions",
+            "severity": "pass"
+          }
+        ],
+        "matchedKeywords": [],
+        "missingKeywords": [],
+        "wordCount": 133,
+        "estimatedPages": 1
+      }
+    },
+    {
+      "name": "messy-ats-en",
+      "input": {
+        "text": "JOHN DOE\nSenior Product Designer\n\nEmail: john.doe@example.com\nPhone: +45 20 12 34 56\nLinkedIn: linkedin.com/in/johndoe-demo\nLocation: Copenhagen, Denmark\n\nSUMMARY\nSenior product designer with 6 years shipping data-intensive dashboards for B2B SaaS products used by millions of operational users. Led a design-system working group and partnered with engineering on cross-functional features end-to-end, from early research through launch and post-launch measurement. Comfortable owning a problem from early discovery through shipped, measured impact, and known for pairing strong systems thinking with a bias toward action.\n\nEXPERIENCE\n\nSenior Product Designer — Kestrel Logistics\nMarch 2023 – Present\n- Redesigned the route-planning dashboard used by 2.4 million drivers and dispatchers across 14 countries, cutting time-to-first-route by 38%.\n- Built and maintained the internal design system, leading a weekly working group with 4 designers and 6 engineers.\n- Introduced component-level accessibility testing into the team workflow, shipping WCAG AA across 90% of the product surface.\n- Partnered with a principal PM and staff engineer to ship 12 cross-functional features in 18 months.\n- Established a quarterly design-critique format adopted by 3 other product teams, raising review throughput by 25%.\n\nProduct Designer — Ember Analytics\nJanuary 2020 – February 2023\n- Designed dense tabular interfaces for financial analysts, reducing support tickets on the reporting surface by 52% in two quarters.\n- Owned the charting-library design guidelines and partnered with engineering on a Canvas-based renderer for large datasets.\n- Ran a research program with 40+ analysts to map daily workflows, shaping three quarters of the product roadmap.\n- Trained 5 junior designers on the team's critique process and design-system contribution model.\n\nJunior Designer — Skylight Studio\nJune 2018 – December 2019\n- Designed marketing sites and early-stage SaaS dashboards for 6 seed-stage B2B clients.\n- Built the studio's first reusable component library, adopted across 12 client projects.\n\nEDUCATION\n\nBA in Interaction Design — Malmö University\nAugust 2014 – June 2018\n\nSKILLS\nFigma\t\tExpert\t\t6 yrs\nCanvas\t\tAdvanced\t\t3 yrs\nResearch\t\tAdvanced\t\t5 yrs\n★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■\n★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■\n★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■\n★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■\n★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■ ★ ◆ ✓ ➤ ● ■\nDesign systems, B2B SaaS, data visualisation, accessibility (WCAG AA), Figma, prototyping, cross-functional collaboration, user research, design critique, Canvas rendering, information architecture, motion design, workshop facilitation, stakeholder communication.\n\nLANGUAGES\nEnglish (fluent), Danish (native), German (conversational).",
+        "locale": "en"
+      },
+      "expected": {
+        "score": 89,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 100,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 0,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 0,
+            "weight": 0
+          },
+          {
+            "category": "conventions",
+            "score": 100,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "possible-table-layout",
+            "category": "ats",
+            "severity": "warning",
+            "params": {
+              "lineCount": 3
+            }
+          },
+          {
+            "id": "special-characters",
+            "category": "ats",
+            "severity": "warning",
+            "params": {
+              "percentage": 8
+            }
+          },
+          {
+            "id": "sections-complete",
+            "category": "structure",
+            "severity": "pass"
+          },
+          {
+            "id": "contact-complete",
+            "category": "contact",
+            "severity": "pass"
+          },
+          {
+            "id": "dates-consistent",
+            "category": "dates",
+            "severity": "pass"
+          },
+          {
+            "id": "length-good",
+            "category": "length",
+            "severity": "pass",
+            "params": {
+              "wordCount": 599
+            }
+          },
+          {
+            "id": "bullets-strong",
+            "category": "bullets",
+            "severity": "pass"
+          },
+          {
+            "id": "locale-length-note",
+            "category": "conventions",
+            "severity": "pass"
+          }
+        ],
+        "matchedKeywords": [],
+        "missingKeywords": [],
+        "wordCount": 599,
+        "estimatedPages": 2
+      }
+    },
+    {
+      "name": "weak-bullets-en",
+      "input": {
+        "text": "JOHN DOE\nSenior Product Designer\n\nEmail: john.doe@example.com\nPhone: +45 20 12 34 56\nLinkedIn: linkedin.com/in/johndoe-demo\nLocation: Copenhagen, Denmark\n\nSUMMARY\nSenior product designer with 6 years shipping data-intensive dashboards for B2B SaaS products used by millions of operational users. Led a design-system working group and partnered with engineering on cross-functional features end-to-end, from early research through launch and post-launch measurement. Comfortable owning a problem from early discovery through shipped, measured impact, and known for pairing strong systems thinking with a bias toward action.\n\nEXPERIENCE\n\nSenior Product Designer — Kestrel Logistics\nMarch 2023 – Present\n- Responsible for helping with the team and assisting on various things in the area\n- Responsible for helping with the team and assisting on various things in the area\n- Responsible for helping with the team and assisting on various things in the area\n- Responsible for helping with the team and assisting on various things in the area\n- Responsible for helping with the team and assisting on various things in the area\n\nProduct Designer — Ember Analytics\nJanuary 2020 – February 2023\n- Responsible for helping with the team and assisting on various things in the area\n- Responsible for helping with the team and assisting on various things in the area\n- Responsible for helping with the team and assisting on various things in the area\n- Responsible for helping with the team and assisting on various things in the area\n\nJunior Designer — Skylight Studio\nJune 2018 – December 2019\n- Responsible for helping with the team and assisting on various things in the area\n- Responsible for helping with the team and assisting on various things in the area\n\nEDUCATION\n\nBA in Interaction Design — Malmö University\nAugust 2014 – June 2018\n\nSKILLS\nDesign systems, B2B SaaS, data visualisation, accessibility (WCAG AA), Figma, prototyping, cross-functional collaboration, user research, design critique, Canvas rendering, information architecture, motion design, workshop facilitation, stakeholder communication.\n\nLANGUAGES\nEnglish (fluent), Danish (native), German (conversational).",
+        "locale": "en"
+      },
+      "expected": {
+        "score": 89,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 100,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 30,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 0,
+            "weight": 0
+          },
+          {
+            "category": "conventions",
+            "score": 100,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "weak-bullet-verbs",
+            "category": "bullets",
+            "severity": "warning",
+            "params": {
+              "percent": 0
+            }
+          },
+          {
+            "id": "unquantified-bullets",
+            "category": "bullets",
+            "severity": "warning",
+            "params": {
+              "percent": 0
+            }
+          },
+          {
+            "id": "sections-complete",
+            "category": "structure",
+            "severity": "pass"
+          },
+          {
+            "id": "contact-complete",
+            "category": "contact",
+            "severity": "pass"
+          },
+          {
+            "id": "dates-consistent",
+            "category": "dates",
+            "severity": "pass"
+          },
+          {
+            "id": "length-good",
+            "category": "length",
+            "severity": "pass",
+            "params": {
+              "wordCount": 326
+            }
+          },
+          {
+            "id": "ats-clean",
+            "category": "ats",
+            "severity": "pass"
+          },
+          {
+            "id": "locale-length-note",
+            "category": "conventions",
+            "severity": "pass"
+          }
+        ],
+        "matchedKeywords": [],
+        "missingKeywords": [],
+        "wordCount": 326,
+        "estimatedPages": 1
+      }
+    },
+    {
+      "name": "mixed-dates-en",
+      "input": {
+        "text": "JOHN DOE\nSenior Product Designer\n\nEmail: john.doe@example.com\nPhone: +45 20 12 34 56\nLinkedIn: linkedin.com/in/johndoe-demo\nLocation: Copenhagen, Denmark\n\nSUMMARY\nSenior product designer with 6 years shipping data-intensive dashboards for B2B SaaS products used by millions of operational users. Led a design-system working group and partnered with engineering on cross-functional features end-to-end, from early research through launch and post-launch measurement. Comfortable owning a problem from early discovery through shipped, measured impact, and known for pairing strong systems thinking with a bias toward action.\n\nEXPERIENCE\n\nSenior Product Designer — Kestrel Logistics\n03/2016 – 2018\n- Redesigned the route-planning dashboard used by 2.4 million drivers and dispatchers across 14 countries, cutting time-to-first-route by 38%.\n- Built and maintained the internal design system, leading a weekly working group with 4 designers and 6 engineers.\n- Introduced component-level accessibility testing into the team workflow, shipping WCAG AA across 90% of the product surface.\n- Partnered with a principal PM and staff engineer to ship 12 cross-functional features in 18 months.\n- Established a quarterly design-critique format adopted by 3 other product teams, raising review throughput by 25%.\n\nProduct Designer — Ember Analytics\nJan 2017 to Feb 2019\n- Designed dense tabular interfaces for financial analysts, reducing support tickets on the reporting surface by 52% in two quarters.\n- Owned the charting-library design guidelines and partnered with engineering on a Canvas-based renderer for large datasets.\n- Ran a research program with 40+ analysts to map daily workflows, shaping three quarters of the product roadmap.\n- Trained 5 junior designers on the team's critique process and design-system contribution model.\n\nJunior Designer — Skylight Studio\n2021-01 – 2023-06\n- Designed marketing sites and early-stage SaaS dashboards for 6 seed-stage B2B clients.\n- Built the studio's first reusable component library, adopted across 12 client projects.\n\nEDUCATION\n\nBA in Interaction Design — Malmö University\nAugust 2014 – June 2018\n\nSKILLS\nDesign systems, B2B SaaS, data visualisation, accessibility (WCAG AA), Figma, prototyping, cross-functional collaboration, user research, design critique, Canvas rendering, information architecture, motion design, workshop facilitation, stakeholder communication.\n\nLANGUAGES\nEnglish (fluent), Danish (native), German (conversational).",
+        "locale": "en"
+      },
+      "expected": {
+        "score": 89,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 100,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 30,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 0,
+            "weight": 0
+          },
+          {
+            "category": "conventions",
+            "score": 100,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "inconsistent-date-formats",
+            "category": "dates",
+            "severity": "warning",
+            "params": {
+              "styleCount": 3
+            }
+          },
+          {
+            "id": "not-reverse-chronological",
+            "category": "dates",
+            "severity": "warning"
+          },
+          {
+            "id": "sections-complete",
+            "category": "structure",
+            "severity": "pass"
+          },
+          {
+            "id": "contact-complete",
+            "category": "contact",
+            "severity": "pass"
+          },
+          {
+            "id": "length-good",
+            "category": "length",
+            "severity": "pass",
+            "params": {
+              "wordCount": 344
+            }
+          },
+          {
+            "id": "bullets-strong",
+            "category": "bullets",
+            "severity": "pass"
+          },
+          {
+            "id": "ats-clean",
+            "category": "ats",
+            "severity": "pass"
+          },
+          {
+            "id": "locale-length-note",
+            "category": "conventions",
+            "severity": "pass"
+          }
+        ],
+        "matchedKeywords": [],
+        "missingKeywords": [],
+        "wordCount": 344,
+        "estimatedPages": 1
+      }
+    },
+    {
+      "name": "too-long-en",
+      "input": {
+        "text": "JOHN DOE\nSenior Product Designer\n\nEmail: john.doe@example.com\nPhone: +45 20 12 34 56\nLinkedIn: linkedin.com/in/johndoe-demo\nLocation: Copenhagen, Denmark\n\nSUMMARY\nSenior product designer with 6 years shipping data-intensive dashboards for B2B SaaS products used by millions of operational users. Led a design-system working group and partnered with engineering on cross-functional features end-to-end, from early research through launch and post-launch measurement. Comfortable owning a problem from early discovery through shipped, measured impact, and known for pairing strong systems thinking with a bias toward action.\n\nEXPERIENCE\n\nSenior Product Designer — Kestrel Logistics\nMarch 2023 – Present\n- Redesigned the route-planning dashboard used by 2.4 million drivers and dispatchers across 14 countries, cutting time-to-first-route by 38%.\n- Built and maintained the internal design system, leading a weekly working group with 4 designers and 6 engineers.\n- Introduced component-level accessibility testing into the team workflow, shipping WCAG AA across 90% of the product surface.\n- Partnered with a principal PM and staff engineer to ship 12 cross-functional features in 18 months.\n- Established a quarterly design-critique format adopted by 3 other product teams, raising review throughput by 25%.\n\nProduct Designer — Ember Analytics\nJanuary 2020 – February 2023\n- Designed dense tabular interfaces for financial analysts, reducing support tickets on the reporting surface by 52% in two quarters.\n- Owned the charting-library design guidelines and partnered with engineering on a Canvas-based renderer for large datasets.\n- Ran a research program with 40+ analysts to map daily workflows, shaping three quarters of the product roadmap.\n- Trained 5 junior designers on the team's critique process and design-system contribution model.\n\nJunior Designer — Skylight Studio\nJune 2018 – December 2019\n- Designed marketing sites and early-stage SaaS dashboards for 6 seed-stage B2B clients.\n- Built the studio's first reusable component library, adopted across 12 client projects.\n\nEDUCATION\n\nBA in Interaction Design — Malmö University\nAugust 2014 – June 2018\n\nSKILLS\nDesign systems, B2B SaaS, data visualisation, accessibility (WCAG AA), Figma, prototyping, cross-functional collaboration, user research, design critique, Canvas rendering, information architecture, motion design, workshop facilitation, stakeholder communication.\n\nLANGUAGES\nEnglish (fluent), Danish (native), German (conversational).\n\nJOHN DOE\nSenior Product Designer\n\nEmail: john.doe@example.com\nPhone: +45 20 12 34 56\nLinkedIn: linkedin.com/in/johndoe-demo\nLocation: Copenhagen, Denmark\n\nSUMMARY\nSenior product designer with 6 years shipping data-intensive dashboards for B2B SaaS products used by millions of operational users. Led a design-system working group and partnered with engineering on cross-functional features end-to-end, from early research through launch and post-launch measurement. Comfortable owning a problem from early discovery through shipped, measured impact, and known for pairing strong systems thinking with a bias toward action.\n\nEXPERIENCE\n\nSenior Product Designer — Kestrel Logistics\nMarch 2023 – Present\n- Redesigned the route-planning dashboard used by 2.4 million drivers and dispatchers across 14 countries, cutting time-to-first-route by 38%.\n- Built and maintained the internal design system, leading a weekly working group with 4 designers and 6 engineers.\n- Introduced component-level accessibility testing into the team workflow, shipping WCAG AA across 90% of the product surface.\n- Partnered with a principal PM and staff engineer to ship 12 cross-functional features in 18 months.\n- Established a quarterly design-critique format adopted by 3 other product teams, raising review throughput by 25%.\n\nProduct Designer — Ember Analytics\nJanuary 2020 – February 2023\n- Designed dense tabular interfaces for financial analysts, reducing support tickets on the reporting surface by 52% in two quarters.\n- Owned the charting-library design guidelines and partnered with engineering on a Canvas-based renderer for large datasets.\n- Ran a research program with 40+ analysts to map daily workflows, shaping three quarters of the product roadmap.\n- Trained 5 junior designers on the team's critique process and design-system contribution model.\n\nJunior Designer — Skylight Studio\nJune 2018 – December 2019\n- Designed marketing sites and early-stage SaaS dashboards for 6 seed-stage B2B clients.\n- Built the studio's first reusable component library, adopted across 12 client projects.\n\nEDUCATION\n\nBA in Interaction Design — Malmö University\nAugust 2014 – June 2018\n\nSKILLS\nDesign systems, B2B SaaS, data visualisation, accessibility (WCAG AA), Figma, prototyping, cross-functional collaboration, user research, design critique, Canvas rendering, information architecture, motion design, workshop facilitation, stakeholder communication.\n\nLANGUAGES\nEnglish (fluent), Danish (native), German (conversational).\n\nJOHN DOE\nSenior Product Designer\n\nEmail: john.doe@example.com\nPhone: +45 20 12 34 56\nLinkedIn: linkedin.com/in/johndoe-demo\nLocation: Copenhagen, Denmark\n\nSUMMARY\nSenior product designer with 6 years shipping data-intensive dashboards for B2B SaaS products used by millions of operational users. Led a design-system working group and partnered with engineering on cross-functional features end-to-end, from early research through launch and post-launch measurement. Comfortable owning a problem from early discovery through shipped, measured impact, and known for pairing strong systems thinking with a bias toward action.\n\nEXPERIENCE\n\nSenior Product Designer — Kestrel Logistics\nMarch 2023 – Present\n- Redesigned the route-planning dashboard used by 2.4 million drivers and dispatchers across 14 countries, cutting time-to-first-route by 38%.\n- Built and maintained the internal design system, leading a weekly working group with 4 designers and 6 engineers.\n- Introduced component-level accessibility testing into the team workflow, shipping WCAG AA across 90% of the product surface.\n- Partnered with a principal PM and staff engineer to ship 12 cross-functional features in 18 months.\n- Established a quarterly design-critique format adopted by 3 other product teams, raising review throughput by 25%.\n\nProduct Designer — Ember Analytics\nJanuary 2020 – February 2023\n- Designed dense tabular interfaces for financial analysts, reducing support tickets on the reporting surface by 52% in two quarters.\n- Owned the charting-library design guidelines and partnered with engineering on a Canvas-based renderer for large datasets.\n- Ran a research program with 40+ analysts to map daily workflows, shaping three quarters of the product roadmap.\n- Trained 5 junior designers on the team's critique process and design-system contribution model.\n\nJunior Designer — Skylight Studio\nJune 2018 – December 2019\n- Designed marketing sites and early-stage SaaS dashboards for 6 seed-stage B2B clients.\n- Built the studio's first reusable component library, adopted across 12 client projects.\n\nEDUCATION\n\nBA in Interaction Design — Malmö University\nAugust 2014 – June 2018\n\nSKILLS\nDesign systems, B2B SaaS, data visualisation, accessibility (WCAG AA), Figma, prototyping, cross-functional collaboration, user research, design critique, Canvas rendering, information architecture, motion design, workshop facilitation, stakeholder communication.\n\nLANGUAGES\nEnglish (fluent), Danish (native), German (conversational).\n\nJOHN DOE\nSenior Product Designer\n\nEmail: john.doe@example.com\nPhone: +45 20 12 34 56\nLinkedIn: linkedin.com/in/johndoe-demo\nLocation: Copenhagen, Denmark\n\nSUMMARY\nSenior product designer with 6 years shipping data-intensive dashboards for B2B SaaS products used by millions of operational users. Led a design-system working group and partnered with engineering on cross-functional features end-to-end, from early research through launch and post-launch measurement. Comfortable owning a problem from early discovery through shipped, measured impact, and known for pairing strong systems thinking with a bias toward action.\n\nEXPERIENCE\n\nSenior Product Designer — Kestrel Logistics\nMarch 2023 – Present\n- Redesigned the route-planning dashboard used by 2.4 million drivers and dispatchers across 14 countries, cutting time-to-first-route by 38%.\n- Built and maintained the internal design system, leading a weekly working group with 4 designers and 6 engineers.\n- Introduced component-level accessibility testing into the team workflow, shipping WCAG AA across 90% of the product surface.\n- Partnered with a principal PM and staff engineer to ship 12 cross-functional features in 18 months.\n- Established a quarterly design-critique format adopted by 3 other product teams, raising review throughput by 25%.\n\nProduct Designer — Ember Analytics\nJanuary 2020 – February 2023\n- Designed dense tabular interfaces for financial analysts, reducing support tickets on the reporting surface by 52% in two quarters.\n- Owned the charting-library design guidelines and partnered with engineering on a Canvas-based renderer for large datasets.\n- Ran a research program with 40+ analysts to map daily workflows, shaping three quarters of the product roadmap.\n- Trained 5 junior designers on the team's critique process and design-system contribution model.\n\nJunior Designer — Skylight Studio\nJune 2018 – December 2019\n- Designed marketing sites and early-stage SaaS dashboards for 6 seed-stage B2B clients.\n- Built the studio's first reusable component library, adopted across 12 client projects.\n\nEDUCATION\n\nBA in Interaction Design — Malmö University\nAugust 2014 – June 2018\n\nSKILLS\nDesign systems, B2B SaaS, data visualisation, accessibility (WCAG AA), Figma, prototyping, cross-functional collaboration, user research, design critique, Canvas rendering, information architecture, motion design, workshop facilitation, stakeholder communication.\n\nLANGUAGES\nEnglish (fluent), Danish (native), German (conversational).",
+        "locale": "en"
+      },
+      "expected": {
+        "score": 96,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 100,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 65,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 0,
+            "weight": 0
+          },
+          {
+            "category": "conventions",
+            "score": 100,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "too-long",
+            "category": "length",
+            "severity": "warning",
+            "params": {
+              "wordCount": 1388,
+              "pages": 3
+            }
+          },
+          {
+            "id": "sections-complete",
+            "category": "structure",
+            "severity": "pass"
+          },
+          {
+            "id": "contact-complete",
+            "category": "contact",
+            "severity": "pass"
+          },
+          {
+            "id": "dates-consistent",
+            "category": "dates",
+            "severity": "pass"
+          },
+          {
+            "id": "bullets-strong",
+            "category": "bullets",
+            "severity": "pass"
+          },
+          {
+            "id": "ats-clean",
+            "category": "ats",
+            "severity": "pass"
+          },
+          {
+            "id": "locale-length-note",
+            "category": "conventions",
+            "severity": "pass"
+          }
+        ],
+        "matchedKeywords": [],
+        "missingKeywords": [],
+        "wordCount": 1388,
+        "estimatedPages": 4
+      }
+    },
+    {
+      "name": "empty",
+      "input": {
+        "text": "",
+        "locale": "fr"
+      },
+      "expected": {
+        "score": 0,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 0,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 0,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 0,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 0,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 0,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 0,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 0,
+            "weight": 0
+          },
+          {
+            "category": "conventions",
+            "score": 0,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "not-enough-text",
+            "category": "length",
+            "severity": "critical",
+            "params": {
+              "wordCount": 0,
+              "minWords": 40
+            }
+          }
+        ],
+        "matchedKeywords": [],
+        "missingKeywords": [],
+        "wordCount": 0,
+        "estimatedPages": 0
+      }
+    }
+  ]
+}
