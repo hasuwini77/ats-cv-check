@@ -84,6 +84,31 @@ const MIXED_DATES = getSampleCvText("en")
 
 const LONG = [1, 2, 3, 4].map(() => getSampleCvText("en")).join("\n\n");
 
+// Accent handling (JS \\b is ASCII-only, so these used to misfire).
+const FR_STUDIES_HEADING = getSampleCvText("fr").replace("FORMATION", "ÉTUDES");
+const FR_A_RANGES = getSampleCvText("fr")
+  .replace("mars 2023 – aujourd'hui", "2022 à 2024")
+  .replace("janvier 2020 – février 2023", "2019 à 2022")
+  .replace("juin 2018 – décembre 2019", "2017 à 2019");
+const FR_A_RANGES_ASCENDING = getSampleCvText("fr")
+  .replace("mars 2023 – aujourd'hui", "2016 à 2018")
+  .replace("janvier 2020 – février 2023", "2019 à 2021")
+  .replace("juin 2018 – décembre 2019", "2022 à 2024");
+const FR_PERSONAL = `${getSampleCvText("fr")}\nNationalité : française\nMarié, deux enfants\nÉtat civil : divorcé`;
+const SV_ACCENT_HEADINGS = getSampleCvText("sv").replace("KOMPETENS", "FÄRDIGHETER");
+const JD_SV_ACCENTS = "Örebro Ångström Åre Östersund Société designsystem tillgänglighet";
+const ACCENT_VERBS = ["Déployé", "Géré", "Piloté", "Optimisé", "Réduit", "Formé", "Livré"];
+let verbIndex = 0;
+const FR_ACCENT_VERBS = getSampleCvText("fr")
+  .split("\n")
+  .map((l) => (l.startsWith("- ") ? `- ${ACCENT_VERBS[verbIndex++ % ACCENT_VERBS.length]} ${l.slice(2).split(" ").slice(1).join(" ")}` : l))
+  .join("\n");
+
+// A job description with far more distinct terms than the 30-term cap.
+const LONG_JD_TERMS = Array.from({ length: 150 }, (_, i) => `zq${String.fromCharCode(97 + (i % 26))}${String.fromCharCode(97 + Math.floor(i / 26))}x`);
+const LONG_JD = LONG_JD_TERMS.join(" ");
+const LONG_JD_CV = `${getSampleCvText("en")}\n${LONG_JD_TERMS.slice(0, 90).join(" ")}`;
+
 const cases: { name: string; locale: "en" | "sv" | "fr"; text: string; jdText?: string }[] = [
   { name: "sample-en", locale: "en", text: getSampleCvText("en") },
   { name: "sample-sv", locale: "sv", text: getSampleCvText("sv") },
@@ -91,6 +116,13 @@ const cases: { name: string; locale: "en" | "sv" | "fr"; text: string; jdText?: 
   { name: "sample-en-with-jd", locale: "en", text: getSampleCvText("en"), jdText: JD_EN },
   { name: "sample-sv-with-jd", locale: "sv", text: getSampleCvText("sv"), jdText: JD_SV },
   { name: "sample-fr-low-jd-match", locale: "fr", text: getSampleCvText("fr"), jdText: JD_FR_LOW },
+  { name: "fr-etudes-heading", locale: "fr", text: FR_STUDIES_HEADING },
+  { name: "fr-a-date-ranges", locale: "fr", text: FR_A_RANGES },
+  { name: "fr-a-date-ranges-ascending", locale: "fr", text: FR_A_RANGES_ASCENDING },
+  { name: "fr-personal-details", locale: "fr", text: FR_PERSONAL },
+  { name: "fr-accent-final-verbs", locale: "fr", text: FR_ACCENT_VERBS },
+  { name: "sv-accent-headings-jd", locale: "sv", text: SV_ACCENT_HEADINGS, jdText: JD_SV_ACCENTS },
+  { name: "long-jd-over-cap", locale: "en", text: LONG_JD_CV, jdText: LONG_JD },
   { name: "under-40-words", locale: "en", text: SHORT },
   { name: "weak-en", locale: "en", text: WEAK_EN },
   { name: "weak-en-as-sv", locale: "sv", text: WEAK_EN },

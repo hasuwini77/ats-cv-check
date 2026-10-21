@@ -37,6 +37,32 @@ describe("parity with the hosted engine", () => {
     expect(result.estimatedPages).toBe(c.expected.estimatedPages);
   });
 
+  it("covers accented headings, 'à' ranges, personal details and a JD over the keyword cap", () => {
+    const names = fixtures.cases.map((c) => c.name);
+    expect(names).toEqual(
+      expect.arrayContaining([
+        "fr-etudes-heading",
+        "fr-a-date-ranges",
+        "fr-a-date-ranges-ascending",
+        "fr-personal-details",
+        "fr-accent-final-verbs",
+        "sv-accent-headings-jd",
+        "long-jd-over-cap",
+      ]),
+    );
+  });
+
+  it("never reports more matched keywords than the total", () => {
+    for (const c of fixtures.cases) {
+      const f = c.expected.findings.find((x) => x.category === "keywords");
+      const params = f?.params as Record<string, number> | undefined;
+      if (params) expect(params.matched, c.name).toBeLessThanOrEqual(params.total);
+    }
+    const long = fixtures.cases.find((c) => c.name === "long-jd-over-cap")!;
+    const f = long.expected.findings.find((x) => x.category === "keywords")!;
+    expect(f.params).toMatchObject({ total: 30 });
+  });
+
   it.each(["en", "sv", "fr"] as const)("bundled %s sample is byte-identical to the fixture input", (locale) => {
     const fixture = fixtures.cases.find((c) => c.name === `sample-${locale}`)!;
     expect(getSampleCvText(locale)).toBe(fixture.input.text);
