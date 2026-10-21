@@ -1,17 +1,20 @@
 // Generates tests/fixtures/parity.json from the hosted app's engine.
 //
-//   npx tsx scripts/generate-fixtures.ts [/path/to/app-repo]
+//   npx tsx scripts/generate-fixtures.ts /path/to/app-repo
 //
 // It imports the app's lib/cv-check.ts straight from disk, runs every case
 // below, and writes the exact outputs plus the app commit SHA. CI never runs
 // this: it only reads the committed JSON (tests/parity.test.ts).
 import { execFileSync } from "node:child_process";
 import { writeFileSync } from "node:fs";
-import { homedir } from "node:os";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
-const appDir = resolve(process.argv[2] ?? join(homedir(), "Documents/Frontend/cv-boost"));
+if (!process.argv[2]) {
+  console.error("usage: npx tsx scripts/generate-fixtures.ts /path/to/app-repo");
+  process.exit(1);
+}
+const appDir = resolve(process.argv[2]);
 
 const engine = await import(pathToFileURL(join(appDir, "lib/cv-check.ts")).href);
 const samples = await import(pathToFileURL(join(appDir, "lib/cv-check-samples.ts")).href);
