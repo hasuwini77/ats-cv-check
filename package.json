@@ -1,9 +1,18 @@
 {
   "name": "ats-cv-check",
   "version": "0.1.0",
+  "private": true,
   "description": "Deterministic ATS-style CV checker. No AI, no network, runs locally. English, Swedish and French.",
   "license": "MIT",
   "author": "Edwin Andermyr",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasuwini77/ats-cv-check.git"
+  },
+  "homepage": "https://github.com/hasuwini77/ats-cv-check#readme",
+  "bugs": {
+    "url": "https://github.com/hasuwini77/ats-cv-check/issues"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -26,7 +35,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
     "fixtures": "tsx scripts/generate-fixtures.ts",
-    "locales": "node scripts/extract-locales.mjs"
+    "locales": "node scripts/extract-locales.mjs",
+    "prepare": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
     "@types/node": "^22.20.5",
