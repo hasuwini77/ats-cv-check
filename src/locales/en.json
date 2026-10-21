@@ -1,0 +1,134 @@
+{
+  "categories": {
+    "structure": "Structure",
+    "contact": "Contact info",
+    "dates": "Dates",
+    "length": "Length",
+    "bullets": "Bullet points",
+    "ats": "ATS compatibility",
+    "keywords": "Keyword match",
+    "conventions": "Regional conventions"
+  },
+  "findings": {
+    "not-enough-text": {
+      "title": "Not enough text to analyse",
+      "fix": "Add more content — a full CV usually runs 300+ words; make sure your upload extracted correctly."
+    },
+    "missing-experience-section": {
+      "title": "No experience section found",
+      "fix": "Add a clearly labelled Experience (or Work History) section listing your roles."
+    },
+    "missing-education-section": {
+      "title": "No education section found",
+      "fix": "Add a clearly labelled Education section, even if it's brief."
+    },
+    "missing-skills-section": {
+      "title": "No skills section found",
+      "fix": "Add a Skills section listing your key technical and professional skills."
+    },
+    "sections-complete": {
+      "title": "All core sections present",
+      "fix": "Keep Experience, Education, and Skills clearly labelled and easy to find."
+    },
+    "missing-email": {
+      "title": "No email address found",
+      "fix": "Add a professional email address near the top of your CV."
+    },
+    "missing-phone": {
+      "title": "No phone number found",
+      "fix": "Add a phone number so recruiters can reach you directly."
+    },
+    "missing-linkedin": {
+      "title": "No LinkedIn URL found",
+      "fix": "Add a link to your LinkedIn profile in your contact details."
+    },
+    "contact-complete": {
+      "title": "Contact details complete",
+      "fix": "Keep your email, phone, and LinkedIn URL up to date and visible."
+    },
+    "inconsistent-date-formats": {
+      "title": "Date formats are inconsistent",
+      "fix": "Use one consistent date format throughout, e.g. \"Jan 2023 – Mar 2024\"."
+    },
+    "missing-dates": {
+      "title": "Some roles are missing dates",
+      "fix": "Add start and end dates (or \"Present\") to every role and qualification."
+    },
+    "not-reverse-chronological": {
+      "title": "Roles aren't in reverse-chronological order",
+      "fix": "List your most recent role first, working backwards through your history."
+    },
+    "dates-consistent": {
+      "title": "Dates are consistent and ordered",
+      "fix": "Keep new roles at the top and formats consistent as you update your CV."
+    },
+    "too-short": {
+      "title": "Your CV looks too short",
+      "fix": "Add more detail to your experience and skills — aim for at least one full page."
+    },
+    "too-long": {
+      "title": "Your CV runs to about {pages} pages",
+      "fix": "Trim to 1–2 pages by cutting older or less relevant roles and tightening bullets."
+    },
+    "length-good": {
+      "title": "Length is well-calibrated",
+      "fix": "Keep it around 1–2 pages as you add new experience."
+    },
+    "weak-bullet-verbs": {
+      "title": "{percent}% of your bullets start with weak verbs",
+      "fix": "Swap passive phrases like \"responsible for\" for strong action verbs like \"led\", \"built\", or \"cut\"."
+    },
+    "unquantified-bullets": {
+      "title": "{percent}% of your bullets have no numbers",
+      "fix": "Add metrics — %, $, time saved, team size — to show the scale of your impact."
+    },
+    "bullets-strong": {
+      "title": "Bullets are strong and quantified",
+      "fix": "Keep leading with action verbs and backing claims with numbers."
+    },
+    "bullets-not-detected": {
+      "title": "No bullet points detected",
+      "fix": "List your achievements as short bullet points (one line each) instead of paragraphs — it's easier for recruiters and ATS software to scan."
+    },
+    "possible-table-layout": {
+      "title": "Possible table or column layout detected",
+      "fix": "Avoid tables, text boxes, and multi-column layouts — many ATS parsers read them out of order or skip them."
+    },
+    "special-characters": {
+      "title": "Unusual characters found",
+      "fix": "Remove icons, emojis, and special symbols that ATS parsers can't read reliably."
+    },
+    "ats-clean": {
+      "title": "No ATS parsing red flags",
+      "fix": "Keep your layout simple — single column, standard fonts, no embedded graphics."
+    },
+    "low-keyword-match": {
+      "title": "Low keyword match — {matched} of {total} terms found",
+      "fix": "Work more of the job posting's key terms and skills naturally into your experience and skills sections."
+    },
+    "moderate-keyword-match": {
+      "title": "Moderate keyword match — {matched} of {total} terms found",
+      "fix": "You're partway there — mirror a few more of the job posting's exact terms to close the gap."
+    },
+    "strong-keyword-match": {
+      "title": "Strong keyword match — {matched} of {total} terms found",
+      "fix": "Great alignment — keep this level of overlap for other roles you apply to."
+    },
+    "locale-photo-note": {
+      "title": "Photo not expected",
+      "fix": "In most English-speaking job markets, CV photos aren't expected — leave it out unless specifically requested."
+    },
+    "locale-personal-details": {
+      "title": "Skip unnecessary personal details",
+      "fix": "Leave out marital status, date of birth, and national ID numbers — they're not expected and can invite bias."
+    },
+    "locale-length-note": {
+      "title": "Keep it concise",
+      "fix": "1–2 pages is the norm in most English-speaking markets — trim older or less relevant experience."
+    },
+    "conventions-ok": {
+      "title": "Follows regional conventions",
+      "fix": "Keep matching what's expected in your target market as you apply elsewhere."
+    }
+  }
+}

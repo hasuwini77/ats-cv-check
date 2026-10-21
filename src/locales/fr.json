@@ -1,0 +1,134 @@
+{
+  "categories": {
+    "structure": "Structure",
+    "contact": "Coordonnées",
+    "dates": "Dates",
+    "length": "Longueur",
+    "bullets": "Puces",
+    "ats": "Compatibilité ATS",
+    "keywords": "Correspondance des mots-clés",
+    "conventions": "Usages locaux"
+  },
+  "findings": {
+    "not-enough-text": {
+      "title": "Pas assez de texte pour l'analyse",
+      "fix": "Ajoutez plus de contenu — un CV complet fait généralement 300 mots ou plus ; vérifiez que l'import a bien extrait le texte."
+    },
+    "missing-experience-section": {
+      "title": "Aucune section Expérience trouvée",
+      "fix": "Ajoutez une section Expérience (ou Parcours professionnel) clairement identifiée listant vos postes."
+    },
+    "missing-education-section": {
+      "title": "Aucune section Formation trouvée",
+      "fix": "Ajoutez une section Formation clairement identifiée, même brève."
+    },
+    "missing-skills-section": {
+      "title": "Aucune section Compétences trouvée",
+      "fix": "Ajoutez une section Compétences listant vos principales compétences techniques et professionnelles."
+    },
+    "sections-complete": {
+      "title": "Toutes les sections principales sont présentes",
+      "fix": "Gardez les sections Expérience, Formation et Compétences clairement identifiées et faciles à repérer."
+    },
+    "missing-email": {
+      "title": "Aucune adresse e-mail trouvée",
+      "fix": "Ajoutez une adresse e-mail professionnelle en haut de votre CV."
+    },
+    "missing-phone": {
+      "title": "Aucun numéro de téléphone trouvé",
+      "fix": "Ajoutez un numéro de téléphone pour que les recruteurs puissent vous joindre directement."
+    },
+    "missing-linkedin": {
+      "title": "Aucun lien LinkedIn trouvé",
+      "fix": "Ajoutez un lien vers votre profil LinkedIn dans vos coordonnées."
+    },
+    "contact-complete": {
+      "title": "Coordonnées complètes",
+      "fix": "Gardez votre e-mail, téléphone et lien LinkedIn à jour et visibles."
+    },
+    "inconsistent-date-formats": {
+      "title": "Les formats de date sont incohérents",
+      "fix": "Utilisez un format de date unique dans tout le CV, par exemple \"janv. 2023 – mars 2024\"."
+    },
+    "missing-dates": {
+      "title": "Certains postes n'ont pas de dates",
+      "fix": "Ajoutez une date de début et de fin (ou \"En cours\") à chaque poste et formation."
+    },
+    "not-reverse-chronological": {
+      "title": "Les postes ne sont pas classés du plus récent au plus ancien",
+      "fix": "Listez votre poste le plus récent en premier, puis remontez dans le temps."
+    },
+    "dates-consistent": {
+      "title": "Les dates sont cohérentes et bien ordonnées",
+      "fix": "Gardez les postes les plus récents en haut et un format cohérent à chaque mise à jour."
+    },
+    "too-short": {
+      "title": "Votre CV semble trop court",
+      "fix": "Détaillez davantage votre expérience et vos compétences — visez au moins une page complète."
+    },
+    "too-long": {
+      "title": "Votre CV fait environ {pages} pages",
+      "fix": "Réduisez à 1–2 pages en retirant les postes anciens ou moins pertinents et en resserrant vos puces."
+    },
+    "length-good": {
+      "title": "La longueur est bien calibrée",
+      "fix": "Restez autour de 1–2 pages à mesure que vous ajoutez de nouvelles expériences."
+    },
+    "weak-bullet-verbs": {
+      "title": "{percent}% de vos puces commencent par des verbes faibles",
+      "fix": "Remplacez les tournures passives comme \"chargé de\" par des verbes d'action forts comme \"dirigé\", \"conçu\" ou \"réduit\"."
+    },
+    "unquantified-bullets": {
+      "title": "{percent}% de vos puces n'ont aucun chiffre",
+      "fix": "Ajoutez des indicateurs chiffrés — %, €, temps gagné, taille d'équipe — pour montrer l'ampleur de votre impact."
+    },
+    "bullets-strong": {
+      "title": "Puces solides et chiffrées",
+      "fix": "Continuez à commencer par des verbes d'action et à appuyer vos résultats avec des chiffres."
+    },
+    "bullets-not-detected": {
+      "title": "Aucune puce détectée",
+      "fix": "Listez vos réalisations sous forme de puces courtes (une ligne chacune) plutôt qu'en paragraphes — c'est plus facile à parcourir pour les recruteurs et les logiciels ATS."
+    },
+    "possible-table-layout": {
+      "title": "Mise en page en tableau ou colonnes détectée",
+      "fix": "Évitez les tableaux, zones de texte et mises en page multi-colonnes — de nombreux ATS les lisent dans le désordre ou les ignorent."
+    },
+    "special-characters": {
+      "title": "Caractères inhabituels détectés",
+      "fix": "Retirez icônes, émojis et symboles spéciaux que les ATS ne lisent pas de manière fiable."
+    },
+    "ats-clean": {
+      "title": "Aucun signal d'alerte pour l'analyse ATS",
+      "fix": "Gardez une mise en page simple — une seule colonne, polices standards, pas de graphiques intégrés."
+    },
+    "low-keyword-match": {
+      "title": "Correspondance de mots-clés faible — {matched} sur {total} termes trouvés",
+      "fix": "Intégrez naturellement davantage des termes clés et compétences de l'offre dans votre expérience et vos compétences."
+    },
+    "moderate-keyword-match": {
+      "title": "Correspondance de mots-clés moyenne — {matched} sur {total} termes trouvés",
+      "fix": "Vous êtes sur la bonne voie — reprenez quelques termes exacts supplémentaires de l'offre pour combler l'écart."
+    },
+    "strong-keyword-match": {
+      "title": "Forte correspondance de mots-clés — {matched} sur {total} termes trouvés",
+      "fix": "Excellent alignement — gardez ce niveau de correspondance pour vos autres candidatures."
+    },
+    "locale-photo-note": {
+      "title": "Photo facultative",
+      "fix": "En France, la photo sur le CV est facultative — ajoutez-la seulement si vous êtes à l'aise, elle n'est plus systématiquement attendue."
+    },
+    "locale-personal-details": {
+      "title": "Limitez les informations personnelles",
+      "fix": "Évitez d'indiquer l'état civil, la date de naissance complète ou un numéro de sécurité sociale — ce n'est plus une attente standard."
+    },
+    "locale-length-note": {
+      "title": "Restez concis",
+      "fix": "Visez 1 à 2 pages — c'est la norme sur le marché du travail français."
+    },
+    "conventions-ok": {
+      "title": "Respecte les usages du CV en France",
+      "fix": "Continuez à adapter ces usages si vous postulez aussi à l'étranger."
+    }
+  }
+}

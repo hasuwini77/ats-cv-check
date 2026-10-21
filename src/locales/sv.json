@@ -1,0 +1,134 @@
+{
+  "categories": {
+    "structure": "Struktur",
+    "contact": "Kontaktuppgifter",
+    "dates": "Datum",
+    "length": "Längd",
+    "bullets": "Punktlistor",
+    "ats": "ATS-kompatibilitet",
+    "keywords": "Nyckelordsmatchning",
+    "conventions": "Lokal CV-praxis"
+  },
+  "findings": {
+    "not-enough-text": {
+      "title": "För lite text för att analysera",
+      "fix": "Lägg till mer innehåll — ett fullständigt CV är oftast 300+ ord; kontrollera att uppladdningen extraherade texten korrekt."
+    },
+    "missing-experience-section": {
+      "title": "Ingen erfarenhetssektion hittades",
+      "fix": "Lägg till en tydligt märkt sektion för arbetslivserfarenhet med dina roller."
+    },
+    "missing-education-section": {
+      "title": "Ingen utbildningssektion hittades",
+      "fix": "Lägg till en tydligt märkt utbildningssektion, även om den är kort."
+    },
+    "missing-skills-section": {
+      "title": "Ingen kompetenssektion hittades",
+      "fix": "Lägg till en kompetenssektion med dina viktigaste tekniska och professionella färdigheter."
+    },
+    "sections-complete": {
+      "title": "Alla huvudsektioner finns med",
+      "fix": "Håll erfarenhet, utbildning och kompetens tydligt märkta och lätta att hitta."
+    },
+    "missing-email": {
+      "title": "Ingen e-postadress hittades",
+      "fix": "Lägg till en professionell e-postadress högst upp i CV:t."
+    },
+    "missing-phone": {
+      "title": "Inget telefonnummer hittades",
+      "fix": "Lägg till ett telefonnummer så att rekryterare kan nå dig direkt."
+    },
+    "missing-linkedin": {
+      "title": "Ingen LinkedIn-länk hittades",
+      "fix": "Lägg till en länk till din LinkedIn-profil i kontaktuppgifterna."
+    },
+    "contact-complete": {
+      "title": "Kontaktuppgifterna är kompletta",
+      "fix": "Håll e-post, telefonnummer och LinkedIn-länk uppdaterade och synliga."
+    },
+    "inconsistent-date-formats": {
+      "title": "Datumformaten är inkonsekventa",
+      "fix": "Använd ett enhetligt datumformat genomgående, t.ex. \"jan 2023 – mar 2024\"."
+    },
+    "missing-dates": {
+      "title": "Vissa roller saknar datum",
+      "fix": "Lägg till start- och slutdatum (eller \"Nuvarande\") för varje roll och utbildning."
+    },
+    "not-reverse-chronological": {
+      "title": "Rollerna listas inte i omvänd kronologisk ordning",
+      "fix": "Lista din senaste roll först och arbeta bakåt genom din historik."
+    },
+    "dates-consistent": {
+      "title": "Datumen är konsekventa och rätt ordnade",
+      "fix": "Håll de senaste rollerna högst upp och formatet enhetligt när du uppdaterar CV:t."
+    },
+    "too-short": {
+      "title": "Ditt CV verkar för kort",
+      "fix": "Lägg till mer detaljer om erfarenhet och kompetens — sikta på minst en hel sida."
+    },
+    "too-long": {
+      "title": "Ditt CV är ungefär {pages} sidor långt",
+      "fix": "Korta ner till 1–2 sidor genom att ta bort äldre eller mindre relevanta roller och skärpa punkterna."
+    },
+    "length-good": {
+      "title": "Längden är väl avvägd",
+      "fix": "Håll dig runt 1–2 sidor när du lägger till ny erfarenhet."
+    },
+    "weak-bullet-verbs": {
+      "title": "{percent}% av dina punkter börjar med svaga verb",
+      "fix": "Byt passiva fraser som \"ansvarig för\" mot starka verb som \"ledde\", \"byggde\" eller \"minskade\"."
+    },
+    "unquantified-bullets": {
+      "title": "{percent}% av dina punkter saknar siffror",
+      "fix": "Lägg till mätbara resultat — %, kr, tid sparad, teamstorlek — för att visa omfattningen av din insats."
+    },
+    "bullets-strong": {
+      "title": "Punkterna är starka och mätbara",
+      "fix": "Fortsätt inleda med handlingsverb och backa upp påståenden med siffror."
+    },
+    "bullets-not-detected": {
+      "title": "Inga punktlistor hittades",
+      "fix": "Lista dina prestationer som korta punkter (en rad var) istället för löpande text — det gör det lättare för rekryterare och ATS-system att skumma igenom."
+    },
+    "possible-table-layout": {
+      "title": "Möjlig tabell- eller kolumnlayout upptäckt",
+      "fix": "Undvik tabeller, textrutor och flerkolumnslayouter — många ATS-system läser dem i fel ordning eller hoppar över dem."
+    },
+    "special-characters": {
+      "title": "Ovanliga tecken hittades",
+      "fix": "Ta bort ikoner, emojis och specialsymboler som ATS-system inte läser tillförlitligt."
+    },
+    "ats-clean": {
+      "title": "Inga varningsflaggor för ATS-tolkning",
+      "fix": "Håll layouten enkel — en kolumn, vanliga typsnitt, ingen inbäddad grafik."
+    },
+    "low-keyword-match": {
+      "title": "Låg nyckelordsmatchning — {matched} av {total} termer hittades",
+      "fix": "Väv in fler av jobbannonsens exakta nyckeltermer och färdigheter i din erfarenhet och kompetens."
+    },
+    "moderate-keyword-match": {
+      "title": "Måttlig nyckelordsmatchning — {matched} av {total} termer hittades",
+      "fix": "Du är på god väg — spegla några fler av jobbannonsens exakta termer för att täppa till luckorna."
+    },
+    "strong-keyword-match": {
+      "title": "Stark nyckelordsmatchning — {matched} av {total} termer hittades",
+      "fix": "Bra matchning — håll samma nivå av överlapp för andra roller du söker."
+    },
+    "locale-photo-note": {
+      "title": "Foto är valfritt",
+      "fix": "I Sverige är foto på CV:t valfritt — lägg bara till ett om det känns naturligt, det påverkar sällan bedömningen."
+    },
+    "locale-personal-details": {
+      "title": "Undvik personnummer och onödiga personuppgifter",
+      "fix": "Skriv aldrig ut personnummer, civilstånd eller födelsedatum i CV:t — det är varken förväntat eller säkert."
+    },
+    "locale-length-note": {
+      "title": "Håll det kort",
+      "fix": "Sikta på 1–2 sidor — det är standarden på den svenska arbetsmarknaden."
+    },
+    "conventions-ok": {
+      "title": "Följer svensk CV-praxis",
+      "fix": "Fortsätt följa lokal praxis om du också söker jobb utomlands."
+    }
+  }
+}
