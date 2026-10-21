@@ -7,8 +7,8 @@ const SAMPLE_EN = `JOHN DOE
 Senior Product Designer
 
 Email: john.doe@example.com
-Phone: +45 20 12 34 56
-LinkedIn: linkedin.com/in/johndoe-demo
+Phone: +45 00 00 00 00
+LinkedIn: linkedin.com/in/example-demo-0001
 Location: Copenhagen, Denmark
 
 SUMMARY
@@ -51,8 +51,8 @@ const SAMPLE_SV = `JOHAN ANDERSSON
 Senior Produktdesigner
 
 E-post: johan.andersson@example.com
-Telefon: +46 70 123 45 67
-LinkedIn: linkedin.com/in/johan-demo
+Telefon: +46 70 174 06 12
+LinkedIn: linkedin.com/in/example-demo-0002
 Ort: Stockholm, Sverige
 
 SAMMANFATTNING
@@ -96,8 +96,8 @@ const SAMPLE_FR = `JEAN MARTIN
 Designer Produit Senior
 
 E-mail : jean.martin@example.com
-Téléphone : +33 6 12 34 56 78
-LinkedIn : linkedin.com/in/jean-demo
+Téléphone : +33 6 39 98 12 34
+LinkedIn : linkedin.com/in/example-demo-0003
 Lieu : Paris, France
 
 RÉSUMÉ

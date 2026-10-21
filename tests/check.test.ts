@@ -250,7 +250,7 @@ describe("length detection", () => {
     // threshold falsely flagged it as too short.
     const text =
       "MICHAEL CHEN\nProduct Manager\nEmail: michael.chen@example.com | Phone: +1 415 555 0192\n" +
-      "LinkedIn: linkedin.com/in/michaelchen | San Francisco, CA\n\n" +
+      "LinkedIn: linkedin.com/in/example-demo-0000 | San Francisco, CA\n\n" +
       "SUMMARY\nProduct manager with 5 years of experience shipping B2B SaaS features from discovery to launch.\n\n" +
       "EXPERIENCE\n\n" +
       "Senior Product Manager - Northwind Analytics\n" +
@@ -523,5 +523,105 @@ describe("determinism", () => {
     const ranks = result.findings.map((f) => (f.severity === "critical" ? 0 : f.severity === "warning" ? 1 : 2));
     const sorted = [...ranks].sort((a, b) => a - b);
     expect(ranks).toEqual(sorted);
+  });
+});
+
+/* ────────────────────────────────────────────────────────────────────── */
+/*  Keyword counts never overflow the capped total                         */
+/* ────────────────────────────────────────────────────────────────────── */
+
+describe("keyword match counts", () => {
+  // 200 distinct 5-letter terms, all present in the CV text.
+  const terms = Array.from({ length: 200 }, (_, i) => `zq${String.fromCharCode(97 + (i % 26))}${String.fromCharCode(97 + Math.floor(i / 26))}x`);
+  const cv = `${getSampleCvText("en")}\n${terms.join(" ")}`;
+
+  it("matched is never greater than total, even when the JD has more terms than the cap", () => {
+    const result = checkCv({ text: cv, locale: "en", jdText: terms.join(" ") });
+    const f = result.findings.find((x) => x.category === "keywords");
+    expect(f?.params?.total).toBe(30);
+    expect(f?.params?.matched).toBe(30);
+    expect(f?.id).toBe("strong-keyword-match");
+    expect(result.matchedKeywords.length).toBeLessThanOrEqual(10);
+  });
+
+  it("matched + missing counts add up to total", () => {
+    const half = terms.slice(0, 100);
+    const result = checkCv({ text: `${getSampleCvText("en")}\n${half.join(" ")}`, locale: "en", jdText: terms.join(" ") });
+    const f = result.findings.find((x) => x.category === "keywords");
+    expect(Number(f?.params?.matched)).toBeLessThanOrEqual(Number(f?.params?.total));
+  });
+});
+
+/* ────────────────────────────────────────────────────────────────────── */
+/*  Accented letters at word boundaries (JS \b is ASCII-only)              */
+/* ────────────────────────────────────────────────────────────────────── */
+
+describe("accented word boundaries: section headings", () => {
+  const fr = getSampleCvText("fr");
+  it.each(["ÉTUDES", "Études", "ÉTUDES SUPÉRIEURES"])("education heading '%s' is recognised", (heading) => {
+    const text = fr.replace("FORMATION", heading);
+    expect(checkCv({ text, locale: "fr" }).findings.some((f) => f.id === "missing-education-section")).toBe(false);
+  });
+});
+
+describe("accented word boundaries: French date ranges", () => {
+  it("'2017 à 2019' ranges are parsed (ascending years trip not-reverse-chronological)", () => {
+    const text = `${filler(60)}
+EXPÉRIENCE
+Chef de projet — Alpha
+2017 à 2019
+- Piloté 3 projets
+Responsable — Beta
+2020 à 2022
+- Géré 4 équipes
+FORMATION
+Licence
+COMPÉTENCES
+Gestion`;
+    expect(findingIds(checkCv({ text, locale: "fr" }))).toContain("not-reverse-chronological");
+  });
+});
+
+describe("accented word boundaries: capitalised keywords", () => {
+  it("keeps accented endings and starts whole", () => {
+    const result = checkCv({ text: getSampleCvText("sv"), locale: "sv", jdText: "Société Örebro Ångström" });
+    expect(result.missingKeywords).toEqual(["société", "ångström", "örebro"]);
+  });
+});
+
+describe("accented word boundaries: French personal details", () => {
+  const fr = getSampleCvText("fr");
+  it.each([
+    "Nationalité : française",
+    "Marié, deux enfants",
+    "État civil : divorcé",
+    "Situation familiale : mariée",
+  ])("'%s' is flagged", (line) => {
+    expect(findingIds(checkCv({ text: `${fr}\n${line}`, locale: "fr" }))).toContain("locale-personal-details");
+  });
+});
+
+describe("accented word boundaries: action verbs", () => {
+  it("French accent-final verbs count as strong bullet starts", () => {
+    const text = `${filler(50)}
+EXPÉRIENCE
+Chef de projet — Alpha
+2020 – 2022
+- Déployé 3 services en production
+- Géré 4 équipes de 12 personnes
+- Piloté 5 migrations vers le cloud
+- Optimisé 40 requêtes critiques
+- Réduit les coûts de 30 pourcent`;
+    expect(findingIds(checkCv({ text, locale: "fr" }))).not.toContain("weak-bullet-verbs");
+  });
+});
+
+describe("sample contact data", () => {
+  it.each(LOCALES)("'%s' sample uses fiction-range phone numbers and placeholder LinkedIn slugs", (locale) => {
+    const text = getSampleCvText(locale);
+    expect(text).toMatch(/linkedin\.com\/in\/example-demo-\d{4}/);
+    const phone = text.match(/(?:Phone|Telefon|Téléphone) ?: (\+[\d ]+)/)?.[1];
+    // DK placeholder, PTS reserved 070-174 06 05..99 (SE), ARCEP reserved 06 39 98 xx xx (FR)
+    expect(phone).toMatch(/^(\+45 00 00 00 00|\+46 70 174 06 \d\d|\+33 6 39 98 \d\d \d\d)$/);
   });
 });

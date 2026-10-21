@@ -62,6 +62,13 @@ function buildAlternation(words: string[]): string {
   return [...new Set(words)].sort((a, b) => b.length - a.length).join("|");
 }
 
+// JS `\b` only knows ASCII word characters, so it misfires next to accented
+// letters ("Études", "Nationalité"). These Unicode-aware boundaries replace it
+// wherever a pattern starts or ends with a letter that may carry an accent.
+// Use them in regexes compiled with the `u` flag.
+const WORD_START = "(?<![\\p{L}\\p{N}_])";
+const WORD_END = "(?![\\p{L}\\p{N}_])";
+
 const SEVERITY_RANK: Record<CvCheckSeverity, number> = {
   critical: 0,
   warning: 1,
@@ -76,12 +83,18 @@ function sortFindings(findings: CvCheckFinding[]): CvCheckFinding[] {
 /*  Structure (weight 20)                                                  */
 /* ────────────────────────────────────────────────────────────────────── */
 
-const EXPERIENCE_HEADING_RE =
-  /\b(work\s+experience|professional\s+experience|employment\s+history|work\s+history|experience|arbetslivserfarenhet|yrkeserfarenhet|erfarenhet|expérience\s+professionnelle|parcours\s+professionnel|expérience)\b/i;
-const EDUCATION_HEADING_RE =
-  /\b(education|academic\s+background|utbildning|akademisk\s+bakgrund|formation|études|diplômes?)\b/i;
-const SKILLS_HEADING_RE =
-  /\b(technical\s+skills|core\s+competencies|skills|competencies|kompetenser|kompetens|färdigheter|compétences)\b/i;
+const EXPERIENCE_HEADING_RE = new RegExp(
+  `${WORD_START}(work\\s+experience|professional\\s+experience|employment\\s+history|work\\s+history|experience|arbetslivserfarenhet|yrkeserfarenhet|erfarenhet|expérience\\s+professionnelle|parcours\\s+professionnel|expérience)${WORD_END}`,
+  "iu",
+);
+const EDUCATION_HEADING_RE = new RegExp(
+  `${WORD_START}(education|academic\\s+background|utbildning|akademisk\\s+bakgrund|formation|études|diplômes?)${WORD_END}`,
+  "iu",
+);
+const SKILLS_HEADING_RE = new RegExp(
+  `${WORD_START}(technical\\s+skills|core\\s+competencies|skills|competencies|kompetenser|kompetens|färdigheter|compétences)${WORD_END}`,
+  "iu",
+);
 const STRUCTURE_SECTION_COUNT = 3;
 
 interface StructureAnalysis {
@@ -179,7 +192,7 @@ const MONTH_FRAGMENT = buildAlternation(MONTH_NAMES_RAW);
 
 const PRESENT_FRAGMENT =
   "present|now|currently|current|ongoing|nu|p[aå]g[aå]ende|aujourd'hui|pr[ée]sent(?:e)?|actuel(?:le)?|[aà]\\s*ce\\s*jour";
-const DATE_SEPARATOR_FRAGMENT = "(?:[-–—]|\\bto\\b|\\btill\\b|\\bà\\b)";
+const DATE_SEPARATOR_FRAGMENT = `(?:[-–—]|${WORD_START}(?:to|till|à)${WORD_END})`;
 
 const ISO_MONTH_TOKEN = "(?:19|20)\\d{2}-(?:0[1-9]|1[0-2])";
 const MONTH_NAME_TOKEN = `(?:${MONTH_FRAGMENT})\\.?\\s+(?:19|20)\\d{2}`;
@@ -189,11 +202,11 @@ const ANY_DATE_TOKEN_RE = new RegExp(`\\b(?:${ISO_MONTH_TOKEN}|${MONTH_NAME_TOKE
 
 const ISO_RANGE_RE = new RegExp(
   `(${ISO_MONTH_TOKEN})\\s*${DATE_SEPARATOR_FRAGMENT}\\s*(${ISO_MONTH_TOKEN}|${PRESENT_FRAGMENT})`,
-  "gi",
+  "giu",
 );
 const MONTH_RANGE_RE = new RegExp(
   `(${MONTH_NAME_TOKEN})\\s*${DATE_SEPARATOR_FRAGMENT}\\s*(${MONTH_NAME_TOKEN}|${PRESENT_FRAGMENT})`,
-  "gi",
+  "giu",
 );
 // Negative lookbehind excludes years that are actually the tail of a
 // "Month YYYY" token (e.g. the "2023" in "March 2023 – Present") so that
@@ -201,7 +214,7 @@ const MONTH_RANGE_RE = new RegExp(
 // style and falsely trip inconsistent-date-formats.
 const YEAR_RANGE_RE = new RegExp(
   `(?<!(?:${MONTH_FRAGMENT})\\.?\\s)\\b(${YEAR_TOKEN})\\s*${DATE_SEPARATOR_FRAGMENT}\\s*(${YEAR_TOKEN}|${PRESENT_FRAGMENT})\\b`,
-  "gi",
+  "giu",
 );
 
 const DATES_BASE_SCORE = 100;
@@ -373,7 +386,7 @@ const BULLET_LINE_RE = /^[ \t]*(?:[-•*]|\d+[.)])[ \t]+(.+)$/;
 // — without depending on any bullet marker at all.
 const DATE_RANGE_LINE_RE = new RegExp(
   `(?:${ISO_MONTH_TOKEN}|${MONTH_NAME_TOKEN}|${YEAR_TOKEN})\\s*${DATE_SEPARATOR_FRAGMENT}\\s*(?:${ISO_MONTH_TOKEN}|${MONTH_NAME_TOKEN}|${YEAR_TOKEN}|${PRESENT_FRAGMENT})`,
-  "i",
+  "iu",
 );
 
 function isDateRangeLine(line: string): boolean {
@@ -478,7 +491,7 @@ const ACTION_VERBS_FR = [
   "maintenu", "écrit", "recruté", "négocié", "refondu", "automatisé",
 ];
 const ACTION_VERB_ALTERNATION = buildAlternation([...ACTION_VERBS_EN, ...ACTION_VERBS_SV, ...ACTION_VERBS_FR]);
-const ACTION_VERB_START_RE = new RegExp(`^(?:${ACTION_VERB_ALTERNATION})\\b`, "i");
+const ACTION_VERB_START_RE = new RegExp(`^(?:${ACTION_VERB_ALTERNATION})${WORD_END}`, "iu");
 
 const WEAK_VERB_RATIO_THRESHOLD = 0.4;
 const QUANTIFIED_MIN_RATIO = 0.25;
@@ -619,7 +632,7 @@ const STOPWORDS_BY_LOCALE: Record<CvCheckLocale, Set<string>> = {
 };
 
 const TOKEN_RE = /[a-zà-öø-ÿ0-9+#.]+/gi;
-const CAPITALIZED_WORD_RE = /\b[A-ZÀ-Ö][a-zà-ÿ0-9+#.]{2,}\b/g;
+const CAPITALIZED_WORD_RE = /(?<![\p{L}\p{N}_])\p{Lu}[\p{Ll}\p{N}+#.]{2,}(?![\p{L}\p{N}_])/gu;
 const MIN_TOKEN_LENGTH = 3;
 const KEYWORD_MATCH_DENOMINATOR_CAP = 30;
 const LOW_KEYWORD_THRESHOLD = 0.3;
@@ -666,12 +679,14 @@ function analyzeKeywords(cvText: string, jdText: string, locale: CvCheckLocale, 
   }
 
   const cvSet = extractKeywordSet(cvText, locale);
-  const jdKeywords = [...jdSet].sort();
+  // Matched, missing and the denominator all come from the same capped,
+  // alphabetical slice of the JD terms, so matched can never exceed total.
+  const jdKeywords = [...jdSet].sort().slice(0, KEYWORD_MATCH_DENOMINATOR_CAP);
   const matched = jdKeywords.filter((k) => cvSet.has(k));
   const missing = jdKeywords.filter((k) => !cvSet.has(k));
 
-  const denominator = Math.min(jdSet.size, KEYWORD_MATCH_DENOMINATOR_CAP);
-  const overlap = denominator > 0 ? Math.min(matched.length / denominator, 1) : 0;
+  const denominator = jdKeywords.length;
+  const overlap = denominator > 0 ? matched.length / denominator : 0;
   const score = Math.round(overlap * 100);
 
   let id: CvCheckFindingId;
@@ -703,8 +718,10 @@ function analyzeKeywords(cvText: string, jdText: string, locale: CvCheckLocale, 
 /* ────────────────────────────────────────────────────────────────────── */
 
 const PERSONNUMMER_RE = /\b\d{6}(?:\d{2})?[-+]\d{4}\b/;
-const FR_PERSONAL_DETAILS_RE =
-  /\b(né(?:e)?\s+le|date de naissance|nationalité|situation familiale|marié(?:e)?|célibataire|état civil)\b/i;
+const FR_PERSONAL_DETAILS_RE = new RegExp(
+  `${WORD_START}(né(?:e)?\\s+le|date de naissance|nationalité|situation familiale|marié(?:e)?|célibataire|état civil)${WORD_END}`,
+  "iu",
+);
 const CONVENTIONS_WARNING_PENALTY = 30;
 
 interface ConventionsAnalysis {
