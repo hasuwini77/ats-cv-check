@@ -48,6 +48,7 @@ describe("parity with the hosted engine", () => {
         "fr-accent-final-verbs",
         "sv-accent-headings-jd",
         "long-jd-over-cap",
+        "jd-40-terms-12-matched",
       ]),
     );
   });
@@ -60,7 +61,10 @@ describe("parity with the hosted engine", () => {
     }
     const long = fixtures.cases.find((c) => c.name === "long-jd-over-cap")!;
     const f = long.expected.findings.find((x) => x.category === "keywords")!;
-    expect(f.params).toMatchObject({ total: 30 });
+    // The score still divides by at most 30; the reported total is the real term count.
+    expect(f.params).toMatchObject({ total: 150 });
+    const forty = fixtures.cases.find((c) => c.name === "jd-40-terms-12-matched")!;
+    expect(forty.expected.findings.find((x) => x.category === "keywords")!.params).toEqual({ matched: 12, total: 40 });
   });
 
   it.each(["en", "sv", "fr"] as const)("bundled %s sample is byte-identical to the fixture input", (locale) => {

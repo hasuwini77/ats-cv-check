@@ -710,11 +710,11 @@
       return { score: 0, weight: 0, findings: [], matched: [], missing: [] };
     }
     const cvSet = extractKeywordSet(cvText, locale2);
-    const jdKeywords = [...jdSet].sort().slice(0, KEYWORD_MATCH_DENOMINATOR_CAP);
+    const jdKeywords = [...jdSet].sort();
     const matched = jdKeywords.filter((k) => cvSet.has(k));
     const missing = jdKeywords.filter((k) => !cvSet.has(k));
-    const denominator = jdKeywords.length;
-    const overlap = denominator > 0 ? matched.length / denominator : 0;
+    const denominator = Math.min(jdSet.size, KEYWORD_MATCH_DENOMINATOR_CAP);
+    const overlap = denominator > 0 ? Math.min(matched.length / denominator, 1) : 0;
     const score = Math.round(overlap * 100);
     let id;
     let severity = "warning";
@@ -727,7 +727,7 @@
       severity = "pass";
     }
     const findings = [
-      { id, category: "keywords", severity, params: { matched: matched.length, total: denominator } }
+      { id, category: "keywords", severity, params: { matched: matched.length, total: jdSet.size } }
     ];
     return {
       score,

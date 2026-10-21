@@ -109,6 +109,10 @@ const LONG_JD_TERMS = Array.from({ length: 150 }, (_, i) => `zq${String.fromChar
 const LONG_JD = LONG_JD_TERMS.join(" ");
 const LONG_JD_CV = `${getSampleCvText("en")}\n${LONG_JD_TERMS.slice(0, 90).join(" ")}`;
 
+// 40 JD terms, 12 of them in the CV: score divides by min(40, 30), finding says "of 40".
+const JD_40 = LONG_JD_TERMS.slice(0, 40).join(" ");
+const JD_40_CV = `${getSampleCvText("en")}\n${LONG_JD_TERMS.slice(0, 12).join(" ")}`;
+
 const cases: { name: string; locale: "en" | "sv" | "fr"; text: string; jdText?: string }[] = [
   { name: "sample-en", locale: "en", text: getSampleCvText("en") },
   { name: "sample-sv", locale: "sv", text: getSampleCvText("sv") },
@@ -123,6 +127,7 @@ const cases: { name: string; locale: "en" | "sv" | "fr"; text: string; jdText?: 
   { name: "fr-accent-final-verbs", locale: "fr", text: FR_ACCENT_VERBS },
   { name: "sv-accent-headings-jd", locale: "sv", text: SV_ACCENT_HEADINGS, jdText: JD_SV_ACCENTS },
   { name: "long-jd-over-cap", locale: "en", text: LONG_JD_CV, jdText: LONG_JD },
+  { name: "jd-40-terms-12-matched", locale: "en", text: JD_40_CV, jdText: JD_40 },
   { name: "under-40-words", locale: "en", text: SHORT },
   { name: "weak-en", locale: "en", text: WEAK_EN },
   { name: "weak-en-as-sv", locale: "sv", text: WEAK_EN },

@@ -679,14 +679,15 @@ function analyzeKeywords(cvText: string, jdText: string, locale: CvCheckLocale, 
   }
 
   const cvSet = extractKeywordSet(cvText, locale);
-  // Matched, missing and the denominator all come from the same capped,
-  // alphabetical slice of the JD terms, so matched can never exceed total.
-  const jdKeywords = [...jdSet].sort().slice(0, KEYWORD_MATCH_DENOMINATOR_CAP);
+  const jdKeywords = [...jdSet].sort();
   const matched = jdKeywords.filter((k) => cvSet.has(k));
   const missing = jdKeywords.filter((k) => !cvSet.has(k));
 
-  const denominator = jdKeywords.length;
-  const overlap = denominator > 0 ? matched.length / denominator : 0;
+  // The score divides by at most KEYWORD_MATCH_DENOMINATOR_CAP so a long job
+  // description is not punished for its length. The finding text reports the
+  // real total, which keeps "matched of total" honest and matched <= total.
+  const denominator = Math.min(jdSet.size, KEYWORD_MATCH_DENOMINATOR_CAP);
+  const overlap = denominator > 0 ? Math.min(matched.length / denominator, 1) : 0;
   const score = Math.round(overlap * 100);
 
   let id: CvCheckFindingId;
@@ -701,7 +702,7 @@ function analyzeKeywords(cvText: string, jdText: string, locale: CvCheckLocale, 
   }
 
   const findings: CvCheckFinding[] = [
-    { id, category: "keywords", severity, params: { matched: matched.length, total: denominator } },
+    { id, category: "keywords", severity, params: { matched: matched.length, total: jdSet.size } },
   ];
 
   return {

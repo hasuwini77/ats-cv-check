@@ -531,24 +531,40 @@ describe("determinism", () => {
 /* ────────────────────────────────────────────────────────────────────── */
 
 describe("keyword match counts", () => {
-  // 200 distinct 5-letter terms, all present in the CV text.
+  // Distinct 5-letter terms, so a JD can be far longer than the 30-term score cap.
   const terms = Array.from({ length: 200 }, (_, i) => `zq${String.fromCharCode(97 + (i % 26))}${String.fromCharCode(97 + Math.floor(i / 26))}x`);
-  const cv = `${getSampleCvText("en")}\n${terms.join(" ")}`;
-
-  it("matched is never greater than total, even when the JD has more terms than the cap", () => {
-    const result = checkCv({ text: cv, locale: "en", jdText: terms.join(" ") });
-    const f = result.findings.find((x) => x.category === "keywords");
-    expect(f?.params?.total).toBe(30);
-    expect(f?.params?.matched).toBe(30);
-    expect(f?.id).toBe("strong-keyword-match");
-    expect(result.matchedKeywords.length).toBeLessThanOrEqual(10);
+  const kw = (r: ReturnType<typeof checkCv>) => ({
+    finding: r.findings.find((x) => x.category === "keywords"),
+    score: r.categories.find((c) => c.category === "keywords")?.score,
   });
 
-  it("matched + missing counts add up to total", () => {
-    const half = terms.slice(0, 100);
-    const result = checkCv({ text: `${getSampleCvText("en")}\n${half.join(" ")}`, locale: "en", jdText: terms.join(" ") });
-    const f = result.findings.find((x) => x.category === "keywords");
-    expect(Number(f?.params?.matched)).toBeLessThanOrEqual(Number(f?.params?.total));
+  it("long JD: matched <= total, and the total is the real JD term count", () => {
+    const result = checkCv({ text: `${getSampleCvText("en")}\n${terms.join(" ")}`, locale: "en", jdText: terms.join(" ") });
+    const { finding } = kw(result);
+    expect(finding?.params).toEqual({ matched: 200, total: 200 });
+    expect(Number(finding?.params?.matched)).toBeLessThanOrEqual(Number(finding?.params?.total));
+    expect(result.matchedKeywords.length).toBe(10);
+    expect(result.matchedKeywords).toEqual([...result.matchedKeywords].sort());
+  });
+
+  it("long JD: scores exactly as before the fix (denominator still capped at 30)", () => {
+    // Values taken from the engine at 9786621, before this change.
+    const result = checkCv({ text: `${getSampleCvText("en")}\n${terms.join(" ")}`, locale: "en", jdText: terms.join(" ") });
+    expect(result.score).toBe(100);
+    expect(kw(result).score).toBe(100);
+    expect(kw(result).finding?.id).toBe("strong-keyword-match");
+  });
+
+  it("40-term JD with 12 matches: same score and finding as before, honest total", () => {
+    const result = checkCv({
+      text: `${getSampleCvText("en")}\n${terms.slice(0, 12).join(" ")}`,
+      locale: "en",
+      jdText: terms.slice(0, 40).join(" "),
+    });
+    expect(result.score).toBe(92);
+    expect(kw(result).score).toBe(40);
+    expect(kw(result).finding?.id).toBe("moderate-keyword-match");
+    expect(kw(result).finding?.params).toEqual({ matched: 12, total: 40 });
   });
 });
 

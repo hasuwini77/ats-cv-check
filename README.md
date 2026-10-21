@@ -17,7 +17,7 @@ It checks eight categories:
 
 Seven of them are scored on their own. Keyword matching only switches on when you pass a job description (`jdText`). Without one, the score is the weighted average of the other seven.
 
-Keywords are compared against the first 30 job-description terms in alphabetical order. `matchedKeywords` and `missingKeywords` come from that same set, are alphabetical, and are capped at 10 each.
+Keyword score is matched terms divided by the job description's term count, with the divisor capped at 30 so a long job description is not punished for its length. The finding reports the real total ("12 of 40 terms found"). `matchedKeywords` and `missingKeywords` are alphabetical and capped at 10 each.
 
 Under 40 words you get a single "not enough text" finding and a score of 0.
 

@@ -1,6 +1,6 @@
 {
   "generatedFrom": {
-    "sha": "0319155887460e69968662a883e3af2cbf8dbc67",
+    "sha": "10e113d68911c48e2e00e987cb516d9e79249967",
     "files": [
       "lib/cv-check.ts",
       "lib/cv-check-types.ts",
@@ -304,7 +304,7 @@
         "jdText": "We are looking for a Senior Product Designer to own our design system and\ndashboard work. You will partner with engineering and product managers, run\nuser research, ship accessible interfaces (WCAG), prototype in Figma and\nmeasure impact. Experience with B2B SaaS, data visualisation, React component\nlibraries and design critique is a strong plus."
       },
       "expected": {
-        "score": 95,
+        "score": 96,
         "categories": [
           {
             "category": "structure",
@@ -338,7 +338,7 @@
           },
           {
             "category": "keywords",
-            "score": 63,
+            "score": 73,
             "weight": 15
           },
           {
@@ -386,8 +386,8 @@
             "category": "keywords",
             "severity": "pass",
             "params": {
-              "matched": 19,
-              "total": 30
+              "matched": 22,
+              "total": 34
             }
           },
           {
@@ -1279,7 +1279,7 @@
         "jdText": "zqaax zqbax zqcax zqdax zqeax zqfax zqgax zqhax zqiax zqjax zqkax zqlax zqmax zqnax zqoax zqpax zqqax zqrax zqsax zqtax zquax zqvax zqwax zqxax zqyax zqzax zqabx zqbbx zqcbx zqdbx zqebx zqfbx zqgbx zqhbx zqibx zqjbx zqkbx zqlbx zqmbx zqnbx zqobx zqpbx zqqbx zqrbx zqsbx zqtbx zqubx zqvbx zqwbx zqxbx zqybx zqzbx zqacx zqbcx zqccx zqdcx zqecx zqfcx zqgcx zqhcx zqicx zqjcx zqkcx zqlcx zqmcx zqncx zqocx zqpcx zqqcx zqrcx zqscx zqtcx zqucx zqvcx zqwcx zqxcx zqycx zqzcx zqadx zqbdx zqcdx zqddx zqedx zqfdx zqgdx zqhdx zqidx zqjdx zqkdx zqldx zqmdx zqndx zqodx zqpdx zqqdx zqrdx zqsdx zqtdx zqudx zqvdx zqwdx zqxdx zqydx zqzdx zqaex zqbex zqcex zqdex zqeex zqfex zqgex zqhex zqiex zqjex zqkex zqlex zqmex zqnex zqoex zqpex zqqex zqrex zqsex zqtex zquex zqvex zqwex zqxex zqyex zqzex zqafx zqbfx zqcfx zqdfx zqefx zqffx zqgfx zqhfx zqifx zqjfx zqkfx zqlfx zqmfx zqnfx zqofx zqpfx zqqfx zqrfx zqsfx zqtfx"
       },
       "expected": {
-        "score": 96,
+        "score": 100,
         "categories": [
           {
             "category": "structure",
@@ -1313,7 +1313,7 @@
           },
           {
             "category": "keywords",
-            "score": 67,
+            "score": 100,
             "weight": 15
           },
           {
@@ -1361,8 +1361,8 @@
             "category": "keywords",
             "severity": "pass",
             "params": {
-              "matched": 20,
-              "total": 30
+              "matched": 90,
+              "total": 150
             }
           },
           {
@@ -1396,6 +1396,134 @@
           "zqefx"
         ],
         "wordCount": 437,
+        "estimatedPages": 1
+      }
+    },
+    {
+      "name": "jd-40-terms-12-matched",
+      "input": {
+        "text": "JOHN DOE\nSenior Product Designer\n\nEmail: john.doe@example.com\nPhone: +45 00 00 00 00\nLinkedIn: linkedin.com/in/example-demo-0001\nLocation: Copenhagen, Denmark\n\nSUMMARY\nSenior product designer with 6 years shipping data-intensive dashboards for B2B SaaS products used by millions of operational users. Led a design-system working group and partnered with engineering on cross-functional features end-to-end, from early research through launch and post-launch measurement. Comfortable owning a problem from early discovery through shipped, measured impact, and known for pairing strong systems thinking with a bias toward action.\n\nEXPERIENCE\n\nSenior Product Designer — Kestrel Logistics\nMarch 2023 – Present\n- Redesigned the route-planning dashboard used by 2.4 million drivers and dispatchers across 14 countries, cutting time-to-first-route by 38%.\n- Built and maintained the internal design system, leading a weekly working group with 4 designers and 6 engineers.\n- Introduced component-level accessibility testing into the team workflow, shipping WCAG AA across 90% of the product surface.\n- Partnered with a principal PM and staff engineer to ship 12 cross-functional features in 18 months.\n- Established a quarterly design-critique format adopted by 3 other product teams, raising review throughput by 25%.\n\nProduct Designer — Ember Analytics\nJanuary 2020 – February 2023\n- Designed dense tabular interfaces for financial analysts, reducing support tickets on the reporting surface by 52% in two quarters.\n- Owned the charting-library design guidelines and partnered with engineering on a Canvas-based renderer for large datasets.\n- Ran a research program with 40+ analysts to map daily workflows, shaping three quarters of the product roadmap.\n- Trained 5 junior designers on the team's critique process and design-system contribution model.\n\nJunior Designer — Skylight Studio\nJune 2018 – December 2019\n- Designed marketing sites and early-stage SaaS dashboards for 6 seed-stage B2B clients.\n- Built the studio's first reusable component library, adopted across 12 client projects.\n\nEDUCATION\n\nBA in Interaction Design — Malmö University\nAugust 2014 – June 2018\n\nSKILLS\nDesign systems, B2B SaaS, data visualisation, accessibility (WCAG AA), Figma, prototyping, cross-functional collaboration, user research, design critique, Canvas rendering, information architecture, motion design, workshop facilitation, stakeholder communication.\n\nLANGUAGES\nEnglish (fluent), Danish (native), German (conversational).\nzqaax zqbax zqcax zqdax zqeax zqfax zqgax zqhax zqiax zqjax zqkax zqlax",
+        "locale": "en",
+        "jdText": "zqaax zqbax zqcax zqdax zqeax zqfax zqgax zqhax zqiax zqjax zqkax zqlax zqmax zqnax zqoax zqpax zqqax zqrax zqsax zqtax zquax zqvax zqwax zqxax zqyax zqzax zqabx zqbbx zqcbx zqdbx zqebx zqfbx zqgbx zqhbx zqibx zqjbx zqkbx zqlbx zqmbx zqnbx"
+      },
+      "expected": {
+        "score": 92,
+        "categories": [
+          {
+            "category": "structure",
+            "score": 100,
+            "weight": 20
+          },
+          {
+            "category": "contact",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "dates",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "length",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "bullets",
+            "score": 100,
+            "weight": 15
+          },
+          {
+            "category": "ats",
+            "score": 100,
+            "weight": 10
+          },
+          {
+            "category": "keywords",
+            "score": 40,
+            "weight": 15
+          },
+          {
+            "category": "conventions",
+            "score": 100,
+            "weight": 10
+          }
+        ],
+        "findings": [
+          {
+            "id": "moderate-keyword-match",
+            "category": "keywords",
+            "severity": "warning",
+            "params": {
+              "matched": 12,
+              "total": 40
+            }
+          },
+          {
+            "id": "sections-complete",
+            "category": "structure",
+            "severity": "pass"
+          },
+          {
+            "id": "contact-complete",
+            "category": "contact",
+            "severity": "pass"
+          },
+          {
+            "id": "dates-consistent",
+            "category": "dates",
+            "severity": "pass"
+          },
+          {
+            "id": "length-good",
+            "category": "length",
+            "severity": "pass",
+            "params": {
+              "wordCount": 359
+            }
+          },
+          {
+            "id": "bullets-strong",
+            "category": "bullets",
+            "severity": "pass"
+          },
+          {
+            "id": "ats-clean",
+            "category": "ats",
+            "severity": "pass"
+          },
+          {
+            "id": "locale-length-note",
+            "category": "conventions",
+            "severity": "pass"
+          }
+        ],
+        "matchedKeywords": [
+          "zqaax",
+          "zqbax",
+          "zqcax",
+          "zqdax",
+          "zqeax",
+          "zqfax",
+          "zqgax",
+          "zqhax",
+          "zqiax",
+          "zqjax"
+        ],
+        "missingKeywords": [
+          "zqabx",
+          "zqbbx",
+          "zqcbx",
+          "zqdbx",
+          "zqebx",
+          "zqfbx",
+          "zqgbx",
+          "zqhbx",
+          "zqibx",
+          "zqjbx"
+        ],
+        "wordCount": 359,
         "estimatedPages": 1
       }
     },
